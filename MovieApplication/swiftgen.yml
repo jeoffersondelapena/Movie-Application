@@ -1,17 +1,17 @@
 strings:
-  inputs: MovieApplication/Resources/Strings
+  inputs: MovieApplication/Presentation/Resources/Strings
   outputs:
     templateName: structured-swift5
-    output: MovieApplication/Resources/Generated/Strings/Strings.swift
+    output: MovieApplication/Presentation/Resources/Generated/Strings/Strings.swift
 
 fonts:
-  inputs: MovieApplication/Resources/Fonts
+  inputs: MovieApplication/Presentation/Resources/Fonts
   outputs:
     templateName: swift5
-    output: MovieApplication/Resources/Generated/Fonts/Fonts.swift
+    output: MovieApplication/Presentation/Resources/Generated/Fonts/Fonts.swift
 
 xcassets:
-  inputs: MovieApplication/Resources/Assets
+  inputs: MovieApplication/Presentation/Resources/Assets
   outputs:
     templateName: swift5
-    output: MovieApplication/Resources/Generated/Assets/Assets.swift
+    output: MovieApplication/Presentation/Resources/Generated/Assets/Assets.swift

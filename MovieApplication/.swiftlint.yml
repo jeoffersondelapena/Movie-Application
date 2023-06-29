@@ -1,3 +1,3 @@
 excluded:
   - Pods
-  - MovieApplication/Resources/Generated
+  - MovieApplication/Presentation/Resources/Generated
