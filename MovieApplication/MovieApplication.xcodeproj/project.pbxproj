@@ -11,6 +11,7 @@
 		40BA28742A4DB99E0084103F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BA28732A4DB99E0084103F /* ContentView.swift */; };
 		40BA28762A4DB9A00084103F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40BA28752A4DB9A00084103F /* Assets.xcassets */; };
 		40BA28792A4DB9A00084103F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40BA28782A4DB9A00084103F /* Preview Assets.xcassets */; };
+		40CCEAA92A4DC2A300839C5F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 40CCEAA82A4DC2A300839C5F /* .swiftlint.yml */; };
 		762FF623F7AA75E7F266A1DB /* Pods_MovieApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07C3A8106BD91ADE302B5B29 /* Pods_MovieApplication.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		40BA28732A4DB99E0084103F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		40BA28752A4DB9A00084103F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40BA28782A4DB9A00084103F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		40CCEAA82A4DC2A300839C5F /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,13 +45,13 @@
 				2FF33920868CBB0044963233 /* Pods-MovieApplication.debug.xcconfig */,
 				21C0D88D5E8C1E426D70B819 /* Pods-MovieApplication.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		40BA28652A4DB99E0084103F = {
 			isa = PBXGroup;
 			children = (
+				40CCEAA82A4DC2A300839C5F /* .swiftlint.yml */,
 				40BA28702A4DB99E0084103F /* MovieApplication */,
 				40BA286F2A4DB99E0084103F /* Products */,
 				0783C8FDFE403B483309ED8A /* Pods */,
@@ -100,6 +102,7 @@
 			buildConfigurationList = 40BA287C2A4DB9A00084103F /* Build configuration list for PBXNativeTarget "MovieApplication" */;
 			buildPhases = (
 				685FAFC9E2570AD6348589A9 /* [CP] Check Pods Manifest.lock */,
+				40CCEAAA2A4DC2F600839C5F /* Run SwiftLint */,
 				40BA286A2A4DB99E0084103F /* Sources */,
 				40BA286B2A4DB99E0084103F /* Frameworks */,
 				40BA286C2A4DB99E0084103F /* Resources */,
@@ -151,6 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40CCEAA92A4DC2A300839C5F /* .swiftlint.yml in Resources */,
 				40BA28792A4DB9A00084103F /* Preview Assets.xcassets in Resources */,
 				40BA28762A4DB9A00084103F /* Assets.xcassets in Resources */,
 			);
@@ -159,6 +163,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		40CCEAAA2A4DC2F600839C5F /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
 		685FAFC9E2570AD6348589A9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
