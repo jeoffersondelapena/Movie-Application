@@ -10,7 +10,7 @@ import Foundation
 struct GetMovieResponse: Codable {
 
     let adult: Bool
-    let backdropPath: String
+    let backdropPath: String?
     let genreIds: [Int]
     let id: Int
     let originalLanguage: String

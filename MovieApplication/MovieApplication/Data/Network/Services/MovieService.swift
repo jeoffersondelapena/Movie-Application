@@ -25,7 +25,7 @@ extension MovieService: BaseTargetType, TargetType {
     var task: Moya.Task {
         switch self {
         case .getMovies(let year):
-            return requestParameters(parameters: [ "primary_release_year": year ])
+            return requestQueryParams(["primary_release_year": year])
         }
     }
 }

@@ -13,18 +13,18 @@ protocol BaseTargetType {}
 extension BaseTargetType {
 
     var baseURL: URL {
-        URL(string: "https://api.themoviedb.org")!
+        Env.baseURL
     }
 
     var headers: [String: String]? {
         nil
     }
 
-    func requestParameters(parameters: [String: Any]) -> Moya.Task {
-        var parametersWithAPIkey = parameters
-        parametersWithAPIkey["api_key"] = "c9e02e288ef86d6887098a8929d944ea"
+    func requestQueryParams(_ queryParams: [String: Any]) -> Moya.Task {
+        var queryParamsWithAPIkey = queryParams
+        queryParamsWithAPIkey["api_key"] = Env.apiKey
         return .requestParameters(
-            parameters: parametersWithAPIkey,
+            parameters: queryParamsWithAPIkey,
             encoding: URLEncoding.queryString
         )
     }
