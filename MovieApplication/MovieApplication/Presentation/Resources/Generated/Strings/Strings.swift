@@ -15,6 +15,10 @@ internal enum L10n {
     internal static let episodes = L10n.tr("Localizable", "label.episodes", fallback: "Episodes")
     /// Movies
     internal static let movies = L10n.tr("Localizable", "label.movies", fallback: "Movies")
+    /// %@ (%@ reviews)
+    internal static func ratingString(_ p1: Any, _ p2: Any) -> String {
+      return L10n.tr("Localizable", "label.ratingString", String(describing: p1), String(describing: p2), fallback: "%@ (%@ reviews)")
+    }
     /// Series
     internal static let series = L10n.tr("Localizable", "label.series", fallback: "Series")
   }

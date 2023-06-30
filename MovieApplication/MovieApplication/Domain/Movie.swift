@@ -11,6 +11,18 @@ struct Movie: Identifiable {
     struct Rating {
         let ratingAverage: Double
         let ratingCount: Int
+
+        static let sample = Rating(
+            ratingAverage: 10.0,
+            ratingCount: 100
+        )
+
+        func toString() -> String {
+            L10n.Label.ratingString(
+                ratingAverage,
+                ratingCount.applyCommas() ?? ratingCount
+            )
+        }
     }
 
     let id: Int
@@ -26,9 +38,6 @@ struct Movie: Identifiable {
         posterURL: nil,
         description: "Movie Description",
         releaseDate: Date(),
-        rating: Rating(
-            ratingAverage: 10.0,
-            ratingCount: 100
-        )
+        rating: Rating.sample
     )
 }

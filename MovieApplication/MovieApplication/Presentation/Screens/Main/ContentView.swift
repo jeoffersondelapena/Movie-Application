@@ -21,6 +21,7 @@ struct ContentView: View {
             }
 
             Text(L10n.Label.series)
+                .applyCustomFont()
                 .tabItem {
                     Label(
                         L10n.Label.series,
@@ -29,6 +30,7 @@ struct ContentView: View {
                 }
 
             Text(L10n.Label.episodes)
+                .applyCustomFont()
                 .tabItem {
                     Label(
                         L10n.Label.episodes,

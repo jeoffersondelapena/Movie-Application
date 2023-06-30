@@ -16,7 +16,7 @@ struct GetMovieResponse: Codable {
     let originalTitle: String
     let overview: String
     let popularity: Double
-    let posterPath: String
+    let posterPath: String?
     let releaseDate: String
     let title: String
     let video: Bool
@@ -27,7 +27,7 @@ struct GetMovieResponse: Codable {
         Movie(
             id: id,
             title: title,
-            posterURL: Env.baseURLImage.appendingPathComponent(posterPath),
+            posterURL: Env.baseURLImage.appendingPathComponent(posterPath ?? ""),
             description: overview,
             releaseDate: DateTimeManager.yyyyMmDdToDate(releaseDate),
             rating: Movie.Rating(

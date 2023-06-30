@@ -14,15 +14,25 @@ struct MovieItem: View {
         HStack {
             ImageHandler(
                 url: movie.posterURL,
-                width: 200,
-                height: 300
+                width: 150,
+                height: 225
             )
 
-            VStack {
+            VStack(alignment: .leading) {
                 Text(movie.title)
-                    .bold()
+                    .applyCustomFont(weight: .w700, size: 16)
+                    .alignText(.leading)
+
+                if let releaseDate = movie.releaseDate {
+                    Text(DateTimeManager.dateToMmmmDdYyyy(releaseDate))
+                        .applyCustomFont(weight: .w300, color: .gray)
+                }
+
+                RatingView(rating: movie.rating)
 
                 Text(movie.description)
+                    .applyCustomFont()
+                    .alignText(.leading)
                     .lineLimit(3)
             }
         }
