@@ -30,6 +30,10 @@ internal enum L10n {
     internal static let movieDetails = L10n.tr("Localizable", "title.movieDetails", fallback: "Movie Details")
     /// Movies
     internal static let movies = L10n.tr("Localizable", "title.movies", fallback: "Movies")
+    /// Series
+    internal static let series = L10n.tr("Localizable", "title.series", fallback: "Series")
+    /// Series Details
+    internal static let seriesDetails = L10n.tr("Localizable", "title.seriesDetails", fallback: "Series Details")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

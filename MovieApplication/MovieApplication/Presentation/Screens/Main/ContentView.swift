@@ -11,7 +11,7 @@ struct ContentView: View {
     var body: some View {
         TabView {
             NavigationStack {
-                MovieListScreen()
+                WatchableListScreen(watchableType: .movie)
             }
             .tabItem {
                 Label(
@@ -20,14 +20,15 @@ struct ContentView: View {
                 )
             }
 
-            Text(L10n.Label.series)
-                .applyCustomFont()
-                .tabItem {
-                    Label(
-                        L10n.Label.series,
-                        systemImage: "tv.fill"
-                    )
-                }
+            NavigationStack {
+                WatchableListScreen(watchableType: .series)
+            }
+            .tabItem {
+                Label(
+                    L10n.Label.series,
+                    systemImage: "tv.fill"
+                )
+            }
 
             Text(L10n.Label.episodes)
                 .applyCustomFont()

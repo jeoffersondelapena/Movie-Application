@@ -1,5 +1,5 @@
 //
-//  GetMovieResponse.swift
+//  GetSeriesResponse.swift
 //  MovieApplication
 //
 //  Created by Jeofferson Dela Peña on 6/30/23.
@@ -7,19 +7,18 @@
 
 import Foundation
 
-struct GetMovieResponse: Codable {
-    let adult: Bool
+struct GetSeriesResponse: Codable {
     let backdropPath: String?
+    let firstAirDate: String
     let genreIds: [Int]
     let id: Int
+    let name: String
+    let originCountry: [String]
     let originalLanguage: String
-    let originalTitle: String
+    let originalName: String
     let overview: String
     let popularity: Double
     let posterPath: String?
-    let releaseDate: String
-    let title: String
-    let video: Bool
     let voteAverage: Double
     let voteCount: Int
 
@@ -36,12 +35,12 @@ struct GetMovieResponse: Codable {
 
         return Watchable(
             id: id,
-            type: .movie,
-            title: title,
+            type: .series,
+            title: name,
             posterURL: posterURL,
             backdropURL: backdropURL,
             description: overview,
-            releaseDate: DateTimeManager.yyyyMmDdToDate(releaseDate),
+            releaseDate: DateTimeManager.yyyyMmDdToDate(firstAirDate),
             rating: Watchable.Rating(
                 ratingAverage: voteAverage,
                 ratingCount: voteCount
@@ -50,10 +49,10 @@ struct GetMovieResponse: Codable {
     }
 }
 
-extension Array<GetMovieResponse> {
+extension Array<GetSeriesResponse> {
     func toDomain() -> [Watchable] {
-        self.map { getMovieResponse in
-            getMovieResponse.toDomain()
+        self.map { getSeriesResponse in
+            getSeriesResponse.toDomain()
         }
     }
 }
