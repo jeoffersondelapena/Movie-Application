@@ -13,15 +13,17 @@ struct MovieItem: View {
     var body: some View {
         NavigationLink(destination: MovieDetailsScreen(movie: movie)) {
             HStack {
-                ImageHandler(
-                    url: movie.posterURL,
-                    width: 150,
-                    height: 225
-                )
+                if let posterURL = movie.posterURL {
+                    ImageHandler(
+                        url: posterURL,
+                        width: 150,
+                        height: 225
+                    )
+                }
 
                 VStack(alignment: .leading) {
                     Text(movie.title)
-                        .applyCustomFont(weight: .w700, size: 16)
+                        .applyCustomFont(weight: .w700, size: 18)
                         .alignText(.leading)
 
                     if let releaseDate = movie.releaseDate {

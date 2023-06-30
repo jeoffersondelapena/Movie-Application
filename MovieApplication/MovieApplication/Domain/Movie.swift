@@ -28,6 +28,7 @@ struct Movie: Identifiable {
     let id: Int
     let title: String
     let posterURL: URL?
+    let backdropURL: URL?
     let description: String
     let releaseDate: Date?
     let rating: Rating
@@ -36,6 +37,7 @@ struct Movie: Identifiable {
         id: -1,
         title: "Movie Title",
         posterURL: nil,
+        backdropURL: nil,
         description: "Movie Description",
         releaseDate: Date(),
         rating: Rating.sample

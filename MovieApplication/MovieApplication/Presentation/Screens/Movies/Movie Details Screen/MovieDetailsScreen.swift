@@ -12,8 +12,41 @@ struct MovieDetailsScreen: View {
 
     var body: some View {
         ScrollView {
-            Text(movie.title)
-                .applyCustomFont()
+            VStack {
+                if let posterURL = movie.posterURL {
+                    ImageHandler(
+                        url: posterURL,
+                        width: .infinity
+                    )
+                    .symmetricPadding(horizontal: 32)
+                }
+
+                Text(movie.title)
+                    .applyCustomFont(weight: .w700, size: 24)
+                    .alignText(.center)
+
+                HStack {
+                    RatingView(rating: movie.rating)
+
+                    Spacer()
+
+                    if let releaseDate = movie.releaseDate {
+                        Text(DateTimeManager.dateToMmmmDdYyyy(releaseDate))
+                            .applyCustomFont(weight: .w300, color: .gray)
+                    }
+                }
+
+                Text(movie.description)
+                    .applyCustomFont()
+
+                if let backdropURL = movie.backdropURL {
+                    ImageHandler(
+                        url: backdropURL,
+                        width: .infinity
+                    )
+                }
+            }
+            .padding(16)
         }
         .navigationTitle(L10n.Title.movieDetails)
         .navigationBarTitleDisplayMode(.inline)

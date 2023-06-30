@@ -23,12 +23,12 @@ struct ImageHandler: View {
             switch phase {
             case .empty:
                 ProgressView()
-                    .frame(width: width, height: height)
+                    .size(width: width, height: height)
             case .success(let image):
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: width, height: height)
+                    .size(width: width, height: height)
             case .failure:
                 ImageHandlerFailedPlaceholder(
                     width: width,
