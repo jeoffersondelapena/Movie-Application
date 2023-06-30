@@ -15,7 +15,10 @@ internal enum L10n {
     internal static let episodes = L10n.tr("Localizable", "label.episodes", fallback: "Episodes")
     /// Movies
     internal static let movies = L10n.tr("Localizable", "label.movies", fallback: "Movies")
-    /// %@ (%@ reviews)
+    /// Localizable.strings
+    ///   MovieApplication
+    /// 
+    ///   Created by Jeofferson Dela Peña on 6/29/23.
     internal static func ratingString(_ p1: Any, _ p2: Any) -> String {
       return L10n.tr("Localizable", "label.ratingString", String(describing: p1), String(describing: p2), fallback: "%@ (%@ reviews)")
     }
@@ -23,11 +26,10 @@ internal enum L10n {
     internal static let series = L10n.tr("Localizable", "label.series", fallback: "Series")
   }
   internal enum Title {
-    /// Localizable.strings
-    ///   MovieApplication
-    /// 
-    ///   Created by Jeofferson Dela Peña on 6/29/23.
-    internal static let movieApp = L10n.tr("Localizable", "title.movieApp", fallback: "Movie App")
+    /// Movie Details
+    internal static let movieDetails = L10n.tr("Localizable", "title.movieDetails", fallback: "Movie Details")
+    /// Movies
+    internal static let movies = L10n.tr("Localizable", "title.movies", fallback: "Movies")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

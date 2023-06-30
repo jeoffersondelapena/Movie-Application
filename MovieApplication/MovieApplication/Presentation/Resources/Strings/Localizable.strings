@@ -6,8 +6,6 @@
   
 */
 
-"title.movieApp" = "Movie App";
-
 // RatingView
 "label.ratingString" = "%@ (%@ reviews)";
 
@@ -15,3 +13,9 @@
 "label.movies" = "Movies";
 "label.series" = "Series";
 "label.episodes" = "Episodes";
+
+// Movie List Screen
+"title.movies" = "Movies";
+
+// Movie Details Screen
+"title.movieDetails" = "Movie Details";

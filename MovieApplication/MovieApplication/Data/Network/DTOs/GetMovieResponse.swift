@@ -24,10 +24,21 @@ struct GetMovieResponse: Codable {
     let voteCount: Int
 
     func toDomain() -> Movie {
-        Movie(
+        var posterURL: URL?
+        if let posterPath = posterPath {
+            posterURL = Env.baseURLImage.appendingPathComponent("/w500\(posterPath)")
+        }
+
+        var backdropURL: URL?
+        if let backdropPath = backdropPath {
+            backdropURL = Env.baseURLImage.appendingPathComponent("/w780\(backdropPath)")
+        }
+
+        return Movie(
             id: id,
             title: title,
-            posterURL: Env.baseURLImage.appendingPathComponent(posterPath ?? ""),
+            posterURL: posterURL,
+            backdropURL: backdropURL,
             description: overview,
             releaseDate: DateTimeManager.yyyyMmDdToDate(releaseDate),
             rating: Movie.Rating(

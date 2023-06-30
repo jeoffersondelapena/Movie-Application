@@ -19,7 +19,7 @@ struct ImageHandlerFailedPlaceholder: View {
     var body: some View {
         ZStack {
             Color(uiColor: Asset.ColorAssets.d3D3D3.color)
-                .frame(width: width, height: height)
+                .size(width: width, height: height)
 
             Image(systemName: "photo")
         }

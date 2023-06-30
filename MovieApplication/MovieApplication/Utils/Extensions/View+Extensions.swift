@@ -53,4 +53,16 @@ extension View {
             self.frame(width: value, height: value)
         )
     }
+
+    func size(width: CGFloat?, height: CGFloat?) -> some View {
+        var view: any View = self
+
+        if width == .infinity || height == .infinity {
+            view = self.frame(maxWidth: width, maxHeight: height)
+        } else {
+            view = self.frame(width: width, height: height)
+        }
+
+        return AnyView(view)
+    }
 }

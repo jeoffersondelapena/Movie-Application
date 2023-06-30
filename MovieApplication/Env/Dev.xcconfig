@@ -11,4 +11,4 @@
 API_KEY = c9e02e288ef86d6887098a8929d944ea
 
 BASE_URL = https:/$()/api.themoviedb.org
-BASE_URL_IMAGE = https:/$()/image.tmdb.org/t/p/w500
+BASE_URL_IMAGE = https:/$()/image.tmdb.org/t/p
