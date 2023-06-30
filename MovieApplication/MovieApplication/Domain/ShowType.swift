@@ -1,5 +1,5 @@
 //
-//  WatchableType.swift
+//  ShowType.swift
 //  MovieApplication
 //
 //  Created by Jeofferson Dela Peña on 7/1/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WatchableType {
+enum ShowType: BinaryEquatable {
     case movie
-    case series
+    case series(withNewEpisodes: Bool = false)
 }

@@ -65,4 +65,11 @@ extension View {
 
         return AnyView(view)
     }
+
+    func showAtTheTop(view: some View) -> some View {
+        VStack(spacing: 0) {
+            view
+            self.frame(maxHeight: .infinity)
+        }
+    }
 }

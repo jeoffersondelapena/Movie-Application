@@ -23,7 +23,7 @@ struct GetMovieResponse: Codable {
     let voteAverage: Double
     let voteCount: Int
 
-    func toDomain() -> Watchable {
+    func toDomain() -> Show {
         var posterURL: URL?
         if let posterPath = posterPath {
             posterURL = Env.baseURLImage.appendingPathComponent("/w500\(posterPath)")
@@ -34,7 +34,7 @@ struct GetMovieResponse: Codable {
             backdropURL = Env.baseURLImage.appendingPathComponent("/w780\(backdropPath)")
         }
 
-        return Watchable(
+        return Show(
             id: id,
             type: .movie,
             title: title,
@@ -42,7 +42,7 @@ struct GetMovieResponse: Codable {
             backdropURL: backdropURL,
             description: overview,
             releaseDate: DateTimeManager.yyyyMmDdToDate(releaseDate),
-            rating: Watchable.Rating(
+            rating: Show.Rating(
                 ratingAverage: voteAverage,
                 ratingCount: voteCount
             )
@@ -51,7 +51,7 @@ struct GetMovieResponse: Codable {
 }
 
 extension Array<GetMovieResponse> {
-    func toDomain() -> [Watchable] {
+    func toDomain() -> [Show] {
         self.map { getMovieResponse in
             getMovieResponse.toDomain()
         }

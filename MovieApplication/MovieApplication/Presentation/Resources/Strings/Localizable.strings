@@ -6,6 +6,17 @@
   
 */
 
+// Sample
+"title.loremIpsum" = "Lorem Ipsum";
+
+// Common
+"title.movieApp" = "Movie App";
+"action.ok" = "OK";
+
+// Error Alert
+"title.somethingWentWrong" = "Something went wrong";
+"message.tryAgainlater" = "Please try again later.";
+
 // RatingView
 "label.ratingString" = "%@ (%@ reviews)";
 
@@ -14,10 +25,12 @@
 "label.series" = "Series";
 "label.episodes" = "Episodes";
 
-// Watchable List Screen
-"title.movies" = "Movies";
-"title.series" = "Series";
+// Show List Screen
+"title.movies2023" = "Movies 2023";
+"title.series2023" = "Series 2023";
+"title.withNewEpisodesThisMonth" = "With New Episodes This Month";
 
-// Watchable Details Screen
+// Show Details Screen
 "title.movieDetails" = "Movie Details";
 "title.seriesDetails" = "Series Details";
+"title.showDetails" = "Show Details";

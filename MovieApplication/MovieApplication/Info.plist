@@ -8,5 +8,7 @@
 	<string>$(BASE_URL)</string>
 	<key>BASE_URL_IMAGE</key>
 	<string>$(BASE_URL_IMAGE)</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Dark</string>
 </dict>
 </plist>

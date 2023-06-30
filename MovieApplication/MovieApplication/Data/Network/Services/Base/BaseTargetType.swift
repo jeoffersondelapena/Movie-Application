@@ -11,6 +11,10 @@ import Moya
 protocol BaseTargetType {}
 
 extension BaseTargetType {
+    private var apiKeyQueryParam: [String: Any] {
+        ["api_key": Env.apiKey]
+    }
+
     var baseURL: URL {
         Env.baseURL
     }
@@ -19,11 +23,18 @@ extension BaseTargetType {
         nil
     }
 
-    func requestQueryParams(_ queryParams: [String: Any]) -> Moya.Task {
-        var queryParamsWithAPIkey = queryParams
-        queryParamsWithAPIkey["api_key"] = Env.apiKey
+    func requestPlain() -> Moya.Task {
         return .requestParameters(
-            parameters: queryParamsWithAPIkey,
+            parameters: apiKeyQueryParam,
+            encoding: URLEncoding.queryString
+        )
+    }
+
+    func requestQueryParams(_ queryParams: [String: Any]) -> Moya.Task {
+        return .requestParameters(
+            parameters: queryParams.merging(apiKeyQueryParam) { queryParams, _ in
+                queryParams
+            },
             encoding: URLEncoding.queryString
         )
     }

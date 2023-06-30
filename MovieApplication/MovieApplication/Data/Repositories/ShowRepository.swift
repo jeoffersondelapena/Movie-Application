@@ -1,5 +1,5 @@
 //
-//  WatchableRepository.swift
+//  ShowRepository.swift
 //  MovieApplication
 //
 //  Created by Jeofferson Dela Peña on 6/30/23.
@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-class WatchableRepository: BaseRepository {
+class ShowRepository: BaseRepository {
     private let movieProvider: MoyaProvider<MovieService>
     private let seriesProvider: MoyaProvider<SeriesService>
 
@@ -20,22 +20,26 @@ class WatchableRepository: BaseRepository {
         self.seriesProvider = seriesProvider
     }
 
-    func getWatchables(
-        watchableType: WatchableType,
+    func getShows(
+        showType: ShowType,
         year: Int,
-        callback: @escaping (Result<[Watchable], Error>) -> Void
+        callback: @escaping (Result<[Show], Error>) -> Void
     ) {
-        switch watchableType {
+        switch showType {
         case .movie:
             getMovies(year: year, callback: callback)
-        case .series:
-            getSeries(year: year, callback: callback)
+        case .series(let withNewEpisodes):
+            if withNewEpisodes {
+                getSeriesWithNewEpisodes(callback: callback)
+            } else {
+                getSeries(year: year, callback: callback)
+            }
         }
     }
 
     private func getMovies(
         year: Int,
-        callback: @escaping (Result<[Watchable], Error>) -> Void
+        callback: @escaping (Result<[Show], Error>) -> Void
     ) {
         movieProvider.request(.getMovies(year: year)) { [weak self] rawResult in
             guard let self = self else { return }
@@ -51,14 +55,29 @@ class WatchableRepository: BaseRepository {
 
     private func getSeries(
         year: Int,
-        callback: @escaping (Result<[Watchable], Error>) -> Void
+        callback: @escaping (Result<[Show], Error>) -> Void
     ) {
         seriesProvider.request(.getSeries(year: year)) { [weak self] rawResult in
             guard let self = self else { return }
             let result: Result<[GetSeriesResponse], Error> = handleRawResult(rawResult)
             switch result {
             case .success(let response):
-                callback(.success(response.toDomain()))
+                callback(.success(response.toDomain(withNewEpisodes: false)))
+            case .failure(let error):
+                callback(.failure(error))
+            }
+        }
+    }
+
+    private func getSeriesWithNewEpisodes(
+        callback: @escaping (Result<[Show], Error>) -> Void
+    ) {
+        seriesProvider.request(.getSeriesWithNewEpisodes) { [weak self] rawResult in
+            guard let self = self else { return }
+            let result: Result<[GetSeriesResponse], Error> = handleRawResult(rawResult)
+            switch result {
+            case .success(let response):
+                callback(.success(response.toDomain(withNewEpisodes: true)))
             case .failure(let error):
                 callback(.failure(error))
             }

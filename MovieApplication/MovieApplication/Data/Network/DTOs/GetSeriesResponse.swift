@@ -22,7 +22,7 @@ struct GetSeriesResponse: Codable {
     let voteAverage: Double
     let voteCount: Int
 
-    func toDomain() -> Watchable {
+    func toDomain(withNewEpisodes: Bool) -> Show {
         var posterURL: URL?
         if let posterPath = posterPath {
             posterURL = Env.baseURLImage.appendingPathComponent("/w500\(posterPath)")
@@ -33,15 +33,15 @@ struct GetSeriesResponse: Codable {
             backdropURL = Env.baseURLImage.appendingPathComponent("/w780\(backdropPath)")
         }
 
-        return Watchable(
+        return Show(
             id: id,
-            type: .series,
+            type: .series(withNewEpisodes: withNewEpisodes),
             title: name,
             posterURL: posterURL,
             backdropURL: backdropURL,
             description: overview,
             releaseDate: DateTimeManager.yyyyMmDdToDate(firstAirDate),
-            rating: Watchable.Rating(
+            rating: Show.Rating(
                 ratingAverage: voteAverage,
                 ratingCount: voteCount
             )
@@ -50,9 +50,9 @@ struct GetSeriesResponse: Codable {
 }
 
 extension Array<GetSeriesResponse> {
-    func toDomain() -> [Watchable] {
+    func toDomain(withNewEpisodes: Bool) -> [Show] {
         self.map { getSeriesResponse in
-            getSeriesResponse.toDomain()
+            getSeriesResponse.toDomain(withNewEpisodes: withNewEpisodes)
         }
     }
 }
