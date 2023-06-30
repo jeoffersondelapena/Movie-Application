@@ -10,9 +10,32 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            MovieListScreen()
+            NavigationStack {
+                MovieListScreen()
+            }
+            .tabItem {
+                Label(
+                    L10n.Label.movies,
+                    systemImage: "film.fill"
+                )
+            }
+
+            Text(L10n.Label.series)
+                .applyCustomFont()
                 .tabItem {
-                    Label("Movies", systemImage: "person.crop.circle.fill")
+                    Label(
+                        L10n.Label.series,
+                        systemImage: "tv.fill"
+                    )
+                }
+
+            Text(L10n.Label.episodes)
+                .applyCustomFont()
+                .tabItem {
+                    Label(
+                        L10n.Label.episodes,
+                        systemImage: "play.square.stack.fill"
+                    )
                 }
         }
     }

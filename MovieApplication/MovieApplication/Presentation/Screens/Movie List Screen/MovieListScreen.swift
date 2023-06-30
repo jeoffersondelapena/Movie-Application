@@ -9,7 +9,6 @@ import SwiftUI
 import Moya
 
 struct MovieListScreen: View {
-
     @StateObject private var viewModel = MovieListViewModel(
         repository: MovieRepository(
             provider: MoyaProvider<MovieService>()
@@ -17,14 +16,14 @@ struct MovieListScreen: View {
     )
 
     var body: some View {
-        VStack {
-            if let errorMessage = viewModel.errorMessage {
-                Text(errorMessage)
-            }
-            ForEach(viewModel.movies) { movie in
-                Text(movie.title)
+        ScrollView {
+            VStack {
+                ForEach(viewModel.movies) { movie in
+                    MovieItem(movie: movie)
+                }
             }
         }
+        .navigationTitle(L10n.Title.movieApp)
         .onAppear(perform: fetchContents)
     }
 

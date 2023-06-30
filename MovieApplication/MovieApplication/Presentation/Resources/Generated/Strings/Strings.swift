@@ -10,6 +10,18 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  internal enum Label {
+    /// Episodes
+    internal static let episodes = L10n.tr("Localizable", "label.episodes", fallback: "Episodes")
+    /// Movies
+    internal static let movies = L10n.tr("Localizable", "label.movies", fallback: "Movies")
+    /// %@ (%@ reviews)
+    internal static func ratingString(_ p1: Any, _ p2: Any) -> String {
+      return L10n.tr("Localizable", "label.ratingString", String(describing: p1), String(describing: p2), fallback: "%@ (%@ reviews)")
+    }
+    /// Series
+    internal static let series = L10n.tr("Localizable", "label.series", fallback: "Series")
+  }
   internal enum Title {
     /// Localizable.strings
     ///   MovieApplication

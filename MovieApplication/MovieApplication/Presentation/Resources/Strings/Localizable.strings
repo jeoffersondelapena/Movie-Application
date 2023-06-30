@@ -7,3 +7,11 @@
 */
 
 "title.movieApp" = "Movie App";
+
+// RatingView
+"label.ratingString" = "%@ (%@ reviews)";
+
+// TabView
+"label.movies" = "Movies";
+"label.series" = "Series";
+"label.episodes" = "Episodes";

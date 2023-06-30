@@ -11,7 +11,6 @@ import Moya
 protocol BaseTargetType {}
 
 extension BaseTargetType {
-
     var baseURL: URL {
         Env.baseURL
     }
