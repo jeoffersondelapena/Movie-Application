@@ -1,5 +1,5 @@
 //
-//  MovieItem.swift
+//  WatchableItem.swift
 //  MovieApplication
 //
 //  Created by Jeofferson Dela Peña on 6/30/23.
@@ -7,13 +7,19 @@
 
 import SwiftUI
 
-struct MovieItem: View {
-    let movie: Movie
+struct WatchableItem: View {
+    let watchableType: WatchableType
+    let watchable: Watchable
 
     var body: some View {
-        NavigationLink(destination: MovieDetailsScreen(movie: movie)) {
+        NavigationLink(
+            destination: WatchableDetailsScreen(
+                watchableType: watchableType,
+                watchable: watchable
+            )
+        ) {
             HStack {
-                if let posterURL = movie.posterURL {
+                if let posterURL = watchable.posterURL {
                     ImageHandler(
                         url: posterURL,
                         width: 150,
@@ -22,18 +28,18 @@ struct MovieItem: View {
                 }
 
                 VStack(alignment: .leading) {
-                    Text(movie.title)
+                    Text(watchable.title)
                         .applyCustomFont(weight: .w700, size: 18)
                         .alignText(.leading)
 
-                    if let releaseDate = movie.releaseDate {
+                    if let releaseDate = watchable.releaseDate {
                         Text(DateTimeManager.dateToMmmmDdYyyy(releaseDate))
                             .applyCustomFont(weight: .w300, color: .gray)
                     }
 
-                    RatingView(rating: movie.rating)
+                    RatingView(rating: watchable.rating)
 
-                    Text(movie.description)
+                    Text(watchable.description)
                         .applyCustomFont()
                         .alignText(.leading)
                         .lineLimit(3)
@@ -44,8 +50,8 @@ struct MovieItem: View {
     }
 }
 
-struct MovieItem_Previews: PreviewProvider {
+struct WatchableItem_Previews: PreviewProvider {
     static var previews: some View {
-        MovieItem(movie: Movie.sample)
+        WatchableItem(watchableType: .movie, watchable: Watchable.sample)
     }
 }

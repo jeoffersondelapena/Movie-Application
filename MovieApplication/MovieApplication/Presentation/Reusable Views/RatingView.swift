@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RatingView: View {
-    let rating: Movie.Rating
+    let rating: Watchable.Rating
 
     var body: some View {
         HStack {
@@ -23,6 +23,6 @@ struct RatingView: View {
 
 struct RatingView_Previews: PreviewProvider {
     static var previews: some View {
-        RatingView(rating: Movie.Rating.sample)
+        RatingView(rating: Watchable.Rating.sample)
     }
 }

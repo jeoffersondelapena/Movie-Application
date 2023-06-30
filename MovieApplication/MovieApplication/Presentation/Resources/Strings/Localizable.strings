@@ -14,8 +14,10 @@
 "label.series" = "Series";
 "label.episodes" = "Episodes";
 
-// Movie List Screen
+// Watchable List Screen
 "title.movies" = "Movies";
+"title.series" = "Series";
 
-// Movie Details Screen
+// Watchable Details Screen
 "title.movieDetails" = "Movie Details";
+"title.seriesDetails" = "Series Details";
