@@ -10,11 +10,17 @@ import Moya
 
 enum SeriesService {
     case getSeries(year: Int)
+    case getSeriesWithNewEpisodes
 }
 
 extension SeriesService: BaseTargetType, TargetType {
     var path: String {
-        "/3/discover/tv"
+        switch self {
+        case .getSeries:
+            return "/3/discover/tv"
+        case .getSeriesWithNewEpisodes:
+            return "/3/tv/on_the_air"
+        }
     }
 
     var method: Moya.Method {
@@ -25,6 +31,8 @@ extension SeriesService: BaseTargetType, TargetType {
         switch self {
         case .getSeries(let year):
             return requestQueryParams(["first_air_date_year": year])
+        case .getSeriesWithNewEpisodes:
+            return requestPlain()
         }
     }
 }

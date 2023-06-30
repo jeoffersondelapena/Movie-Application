@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct RatingView: View {
-    let rating: Watchable.Rating
+    let rating: Show.Rating
 
     var body: some View {
         HStack {
             Image(systemName: "star.fill")
+                .foregroundColor(.accentColor)
                 .size(24)
 
             Text(rating.toString())
@@ -23,6 +24,6 @@ struct RatingView: View {
 
 struct RatingView_Previews: PreviewProvider {
     static var previews: some View {
-        RatingView(rating: Watchable.Rating.sample)
+        RatingView(rating: Show.Rating.sample)
     }
 }

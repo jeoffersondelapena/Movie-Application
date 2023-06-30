@@ -8,10 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    init() {
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithOpaqueBackground()
+        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+    }
+
     var body: some View {
         TabView {
             NavigationStack {
-                WatchableListScreen(watchableType: .movie)
+                ShowListScreen(showType: .movie)
             }
             .tabItem {
                 Label(
@@ -21,7 +28,7 @@ struct ContentView: View {
             }
 
             NavigationStack {
-                WatchableListScreen(watchableType: .series)
+                ShowListScreen(showType: .series())
             }
             .tabItem {
                 Label(
@@ -30,14 +37,15 @@ struct ContentView: View {
                 )
             }
 
-            Text(L10n.Label.episodes)
-                .applyCustomFont()
-                .tabItem {
-                    Label(
-                        L10n.Label.episodes,
-                        systemImage: "play.square.stack.fill"
-                    )
-                }
+            NavigationStack {
+                ShowListScreen(showType: .series(withNewEpisodes: true))
+            }
+            .tabItem {
+                Label(
+                    L10n.Label.episodes,
+                    systemImage: "play.square.stack.fill"
+                )
+            }
         }
     }
 }

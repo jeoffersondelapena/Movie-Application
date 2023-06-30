@@ -1,5 +1,5 @@
 //
-//  Watchable.swift
+//  Show.swift
 //  MovieApplication
 //
 //  Created by Jeofferson Dela Peña on 6/30/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Watchable: Identifiable {
+struct Show: Identifiable {
     struct Rating {
         let ratingAverage: Double
         let ratingCount: Int
@@ -26,7 +26,7 @@ struct Watchable: Identifiable {
     }
 
     let id: Int
-    let type: WatchableType
+    let type: ShowType
     let title: String
     let posterURL: URL?
     let backdropURL: URL?
@@ -34,7 +34,7 @@ struct Watchable: Identifiable {
     let releaseDate: Date?
     let rating: Rating
 
-    static let sample = Watchable(
+    static let sample = Show(
         id: -1,
         type: .movie,
         title: "Title",

@@ -35,8 +35,8 @@ extension Text {
 
     func applyCustomFont(
         weight: FontWeight = .w400,
-        size: CGFloat = 14,
-        color: Color = .black
+        size: CGFloat = 12,
+        color: Color = .white
     ) -> Text {
         let fontConvertible: FontConvertible
 
