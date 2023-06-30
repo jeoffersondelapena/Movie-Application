@@ -7,3 +7,8 @@
 */
 
 "title.movieApp" = "Movie App";
+
+// TabView
+"label.movies" = "Movies";
+"label.series" = "Series";
+"label.episodes" = "Episodes";

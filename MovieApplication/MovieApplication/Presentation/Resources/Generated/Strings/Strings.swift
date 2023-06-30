@@ -10,6 +10,14 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  internal enum Label {
+    /// Episodes
+    internal static let episodes = L10n.tr("Localizable", "label.episodes", fallback: "Episodes")
+    /// Movies
+    internal static let movies = L10n.tr("Localizable", "label.movies", fallback: "Movies")
+    /// Series
+    internal static let series = L10n.tr("Localizable", "label.series", fallback: "Series")
+  }
   internal enum Title {
     /// Localizable.strings
     ///   MovieApplication

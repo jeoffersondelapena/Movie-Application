@@ -28,10 +28,12 @@ struct GetMovieResponse: Codable {
         Movie(
             id: id,
             title: title,
-            releaseDate: DateTimeManager.yyyyMmDdToDate(releaseDate),
             description: overview,
-            rating: voteAverage,
-            reviewsCount: voteCount
+            releaseDate: DateTimeManager.yyyyMmDdToDate(releaseDate),
+            rating: Movie.Rating(
+                ratingAverage: voteAverage,
+                ratingCount: voteCount
+            )
         )
     }
 }
