@@ -23,7 +23,7 @@ struct MovieListScreen: View {
                 }
             }
         }
-        .navigationTitle(L10n.Title.movieApp)
+        .navigationTitle(L10n.Title.movies)
         .onAppear(perform: fetchContents)
     }
 
