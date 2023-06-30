@@ -9,7 +9,6 @@ import Foundation
 import Moya
 
 class MovieRepository: BaseRepository {
-
     private let provider: MoyaProvider<MovieService>
 
     init(provider: MoyaProvider<MovieService>) {

@@ -8,7 +8,6 @@
 import Foundation
 
 struct GetMovieResponse: Codable {
-
     let adult: Bool
     let backdropPath: String?
     let genreIds: [Int]
@@ -28,6 +27,7 @@ struct GetMovieResponse: Codable {
         Movie(
             id: id,
             title: title,
+            posterURL: Env.baseURLImage.appendingPathComponent(posterPath),
             description: overview,
             releaseDate: DateTimeManager.yyyyMmDdToDate(releaseDate),
             rating: Movie.Rating(

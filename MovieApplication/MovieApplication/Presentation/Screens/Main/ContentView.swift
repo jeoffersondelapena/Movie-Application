@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-
             NavigationStack {
                 MovieListScreen()
             }
@@ -36,7 +35,6 @@ struct ContentView: View {
                         systemImage: "play.square.stack.fill"
                     )
                 }
-
         }
     }
 }

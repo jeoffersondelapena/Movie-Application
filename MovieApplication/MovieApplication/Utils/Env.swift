@@ -8,10 +8,10 @@
 import Foundation
 
 struct Env {
-
     private struct Key {
-        static _const let baseURL = "BASE_URL"
         static _const let apiKey = "API_KEY"
+        static _const let baseURL = "BASE_URL"
+        static _const let baseURLImage = "BASE_URL_IMAGE"
     }
 
     private static let infoDictionary: [String: Any] = {
@@ -19,6 +19,13 @@ struct Env {
             fatalError("plist file not found.")
         }
         return infoDictionary
+    }()
+
+    static let apiKey: String = {
+        guard let apiKey = Env.infoDictionary[Key.apiKey] as? String else {
+            fatalError(notSetInPlistErrorMessage(Key.apiKey))
+        }
+        return apiKey
     }()
 
     static let baseURL: URL = {
@@ -31,11 +38,14 @@ struct Env {
         return baseURL
     }()
 
-    static let apiKey: String = {
-        guard let apiKey = Env.infoDictionary[Key.apiKey] as? String else {
-            fatalError(notSetInPlistErrorMessage(Key.apiKey))
+    static let baseURLImage: URL = {
+        guard let baseURLImageString = Env.infoDictionary[Key.baseURLImage] as? String else {
+            fatalError(notSetInPlistErrorMessage(Key.baseURLImage))
         }
-        return apiKey
+        guard let baseURLImage = URL(string: baseURLImageString) else {
+            fatalError("\(Key.baseURLImage) value is invalid.")
+        }
+        return baseURLImage
     }()
 
     private static func notSetInPlistErrorMessage(_ key: String) -> String {

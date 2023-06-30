@@ -8,18 +8,22 @@
 import SwiftUI
 
 struct MovieItem: View {
-
     let movie: Movie
 
     var body: some View {
         HStack {
-            VStack {
+            ImageHandler(
+                url: movie.posterURL,
+                width: 200,
+                height: 300
+            )
 
+            VStack {
                 Text(movie.title)
                     .bold()
 
                 Text(movie.description)
-
+                    .lineLimit(3)
             }
         }
         .padding()

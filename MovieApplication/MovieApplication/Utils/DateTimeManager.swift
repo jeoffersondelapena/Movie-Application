@@ -8,7 +8,6 @@
 import Foundation
 
 struct DateTimeManager {
-
     private static var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")

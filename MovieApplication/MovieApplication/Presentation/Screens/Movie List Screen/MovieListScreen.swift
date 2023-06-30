@@ -9,7 +9,6 @@ import SwiftUI
 import Moya
 
 struct MovieListScreen: View {
-
     @StateObject private var viewModel = MovieListViewModel(
         repository: MovieRepository(
             provider: MoyaProvider<MovieService>()

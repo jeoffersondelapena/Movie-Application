@@ -8,5 +8,7 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-BASE_URL = https:/$()/api.themoviedb.org
 API_KEY = c9e02e288ef86d6887098a8929d944ea
+
+BASE_URL = https:/$()/api.themoviedb.org
+BASE_URL_IMAGE = https:/$()/image.tmdb.org/t/p/w500

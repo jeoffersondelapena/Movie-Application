@@ -13,7 +13,6 @@ enum MovieService {
 }
 
 extension MovieService: BaseTargetType, TargetType {
-
     var path: String {
         "/3/discover/movie"
     }

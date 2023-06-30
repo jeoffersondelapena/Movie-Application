@@ -8,7 +8,6 @@
 import Foundation
 
 struct Movie: Identifiable {
-
     struct Rating {
         let ratingAverage: Double
         let ratingCount: Int
@@ -16,6 +15,7 @@ struct Movie: Identifiable {
 
     let id: Int
     let title: String
+    let posterURL: URL?
     let description: String
     let releaseDate: Date?
     let rating: Rating
@@ -23,6 +23,7 @@ struct Movie: Identifiable {
     static let sample = Movie(
         id: -1,
         title: "Movie Title",
+        posterURL: nil,
         description: "Movie Description",
         releaseDate: Date(),
         rating: Rating(

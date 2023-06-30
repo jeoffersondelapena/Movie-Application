@@ -9,7 +9,6 @@ import Foundation
 import Moya
 
 class MovieListViewModel: ObservableObject {
-
     @Published var movies: [Movie] = []
 
     @Published var errorMessage: String?
