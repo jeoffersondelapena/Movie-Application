@@ -1,5 +1,5 @@
 //
-//  ShowListScreen.swift
+//  MediaListScreen.swift
 //  MovieApplication
 //
 //  Created by Jeofferson Dela Peña on 6/30/23.
@@ -8,9 +8,9 @@
 import SwiftUI
 import Moya
 
-struct ShowListScreen: View {
-    @StateObject private var viewModel = ShowListViewModel(
-        repository: ShowRepository(
+struct MediaListScreen: View {
+    @StateObject private var viewModel = MediaListViewModel(
+        repository: MediaRepository(
             movieProvider: MoyaProvider<MovieService>(),
             seriesProvider: MoyaProvider<SeriesService>()
         )
@@ -20,7 +20,7 @@ struct ShowListScreen: View {
     @State private var errorMessage: String?
 
     private var subNavigationBarTitle: String {
-        switch showType {
+        switch mediaType {
         case .movie:
             return L10n.Title.movies2023
         case .series(let withNewEpisodesThisMonth):
@@ -33,7 +33,7 @@ struct ShowListScreen: View {
     }
 
     private var isInset: Bool {
-        switch showType {
+        switch mediaType {
         case .movie:
             return false
         case .series(let withNewEpisodesThisMonth):
@@ -41,14 +41,14 @@ struct ShowListScreen: View {
         }
     }
 
-    let showType: ShowType
+    let mediaType: MediaType
 
     var body: some View {
         List {
-            ForEach(viewModel.shows) { show in
-                ShowItem(
-                    showType: showType,
-                    show: show
+            ForEach(viewModel.medias) { media in
+                MediaItem(
+                    mediaType: mediaType,
+                    media: media
                 )
             }
         }
@@ -69,7 +69,7 @@ struct ShowListScreen: View {
     }
 
     private func fetchContents() {
-        viewModel.getShows(showType: showType)
+        viewModel.getMedias(mediaType: mediaType)
     }
 
     private func onErrorMessageChange(errorMessage: String?) {
@@ -91,8 +91,8 @@ struct ShowListScreen: View {
     }
 }
 
-struct ShowListScreen_Previews: PreviewProvider {
+struct MediaListScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ShowListScreen(showType: .movie)
+        MediaListScreen(mediaType: .movie)
     }
 }

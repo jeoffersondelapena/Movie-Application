@@ -1,5 +1,5 @@
 //
-//  ShowRepository.swift
+//  MediaRepository.swift
 //  MovieApplication
 //
 //  Created by Jeofferson Dela Peña on 6/30/23.
@@ -8,7 +8,7 @@
 import Foundation
 import Moya
 
-class ShowRepository: BaseRepository {
+class MediaRepository: BaseRepository {
     private let movieProvider: MoyaProvider<MovieService>
     private let seriesProvider: MoyaProvider<SeriesService>
 
@@ -20,12 +20,12 @@ class ShowRepository: BaseRepository {
         self.seriesProvider = seriesProvider
     }
 
-    func getShows(
-        showType: ShowType,
+    func getMedias(
+        mediaType: MediaType,
         year: Int,
-        callback: @escaping (Result<[Show], Error>) -> Void
+        callback: @escaping (Result<[Media], Error>) -> Void
     ) {
-        switch showType {
+        switch mediaType {
         case .movie:
             getMovies(year: year, callback: callback)
         case .series(let withNewEpisodesThisMonth):
@@ -39,7 +39,7 @@ class ShowRepository: BaseRepository {
 
     private func getMovies(
         year: Int,
-        callback: @escaping (Result<[Show], Error>) -> Void
+        callback: @escaping (Result<[Media], Error>) -> Void
     ) {
         movieProvider.request(.getMovies(year: year)) { [weak self] rawResult in
             guard let self = self else { return }
@@ -55,7 +55,7 @@ class ShowRepository: BaseRepository {
 
     private func getSeries(
         year: Int,
-        callback: @escaping (Result<[Show], Error>) -> Void
+        callback: @escaping (Result<[Media], Error>) -> Void
     ) {
         seriesProvider.request(.getSeries(year: year)) { [weak self] rawResult in
             guard let self = self else { return }
@@ -70,7 +70,7 @@ class ShowRepository: BaseRepository {
     }
 
     private func getSeriesWithNewEpisodes(
-        callback: @escaping (Result<[Show], Error>) -> Void
+        callback: @escaping (Result<[Media], Error>) -> Void
     ) {
         seriesProvider.request(.getSeriesWithNewEpisodes) { [weak self] rawResult in
             guard let self = self else { return }

@@ -1,5 +1,5 @@
 //
-//  Show.swift
+//  Media.swift
 //  MovieApplication
 //
 //  Created by Jeofferson Dela Peña on 6/30/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Show: Identifiable {
+struct Media: Identifiable {
     struct Rating {
         let ratingAverage: Double
         let ratingCount: Int
@@ -26,7 +26,7 @@ struct Show: Identifiable {
     }
 
     let id: Int
-    let type: ShowType
+    let type: MediaType
     let title: String
     let posterURL: URL?
     let backdropURL: URL?
@@ -34,7 +34,7 @@ struct Show: Identifiable {
     let releaseDate: Date?
     let rating: Rating
 
-    static let sample = Show(
+    static let sample = Media(
         id: -1,
         type: .movie,
         title: "Title",

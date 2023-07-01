@@ -18,7 +18,7 @@ struct ContentView: View {
     var body: some View {
         TabView {
             NavigationStack {
-                ShowListScreen(showType: .movie)
+                MediaListScreen(mediaType: .movie)
             }
             .tabItem {
                 Label(
@@ -28,7 +28,7 @@ struct ContentView: View {
             }
 
             NavigationStack {
-                ShowListScreen(showType: .series())
+                MediaListScreen(mediaType: .series())
             }
             .tabItem {
                 Label(
@@ -38,7 +38,7 @@ struct ContentView: View {
             }
 
             NavigationStack {
-                ShowListScreen(showType: .series(withNewEpisodesThisMonth: true))
+                MediaListScreen(mediaType: .series(withNewEpisodesThisMonth: true))
             }
             .tabItem {
                 Label(

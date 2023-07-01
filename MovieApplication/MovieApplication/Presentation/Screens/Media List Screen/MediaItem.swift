@@ -1,5 +1,5 @@
 //
-//  ShowItem.swift
+//  MediaItem.swift
 //  MovieApplication
 //
 //  Created by Jeofferson Dela Peña on 6/30/23.
@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-struct ShowItem: View {
-    let showType: ShowType
-    let show: Show
+struct MediaItem: View {
+    let mediaType: MediaType
+    let media: Media
 
     var body: some View {
         NavigationLink(
-            destination: ShowDetailsScreen(
-                showType: showType,
-                show: show
+            destination: MediaDetailsScreen(
+                mediaType: mediaType,
+                media: media
             )
         ) {
             HStack {
-                if let posterURL = show.posterURL {
+                if let posterURL = media.posterURL {
                     ImageHandler(
                         url: posterURL,
                         width: 100,
@@ -28,17 +28,17 @@ struct ShowItem: View {
                 }
 
                 VStack(alignment: .leading) {
-                    Text(show.title)
+                    Text(media.title)
                         .applyCustomFont(weight: .w700, size: 14)
                         .alignText(.leading)
 
-                    if let releaseDate = show.releaseDate {
+                    if let releaseDate = media.releaseDate {
                         ReleaseDateView(releaseDate: releaseDate)
                     }
 
-                    RatingView(rating: show.rating)
+                    RatingView(rating: media.rating)
 
-                    Text(show.description)
+                    Text(media.description)
                         .applyCustomFont()
                         .alignText(.leading)
                         .lineLimit(3)
@@ -48,8 +48,8 @@ struct ShowItem: View {
     }
 }
 
-struct ShowItem_Previews: PreviewProvider {
+struct MediaItem_Previews: PreviewProvider {
     static var previews: some View {
-        ShowItem(showType: .movie, show: Show.sample)
+        MediaItem(mediaType: .movie, media: Media.sample)
     }
 }

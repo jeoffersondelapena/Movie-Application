@@ -1,5 +1,5 @@
 //
-//  ShowDetailsScreen.swift
+//  MediaDetailsScreen.swift
 //  MovieApplication
 //
 //  Created by Jeofferson Dela Peña on 6/30/23.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct ShowDetailsScreen: View {
+struct MediaDetailsScreen: View {
     var navigationBarTitle: String {
-        switch showType {
+        switch mediaType {
         case .movie:
             return L10n.Title.movieDetails
         case .series(let withNewEpisodesThisMonth):
@@ -21,13 +21,13 @@ struct ShowDetailsScreen: View {
         }
     }
 
-    let showType: ShowType
-    let show: Show
+    let mediaType: MediaType
+    let media: Media
 
     var body: some View {
         ScrollView {
             VStack {
-                if let posterURL = show.posterURL {
+                if let posterURL = media.posterURL {
                     ImageHandler(
                         url: posterURL,
                         width: .infinity
@@ -35,24 +35,24 @@ struct ShowDetailsScreen: View {
                     .symmetricPadding(horizontal: 32)
                 }
 
-                Text(show.title)
+                Text(media.title)
                     .applyCustomFont(weight: .w700, size: 24)
                     .alignText(.center)
 
                 HStack {
-                    RatingView(rating: show.rating)
+                    RatingView(rating: media.rating)
 
                     Spacer()
 
-                    if let releaseDate = show.releaseDate {
+                    if let releaseDate = media.releaseDate {
                         ReleaseDateView(releaseDate: releaseDate)
                     }
                 }
 
-                Text(show.description)
+                Text(media.description)
                     .applyCustomFont(size: 14)
 
-                if let backdropURL = show.backdropURL {
+                if let backdropURL = media.backdropURL {
                     ImageHandler(
                         url: backdropURL,
                         width: .infinity
@@ -66,11 +66,11 @@ struct ShowDetailsScreen: View {
     }
 }
 
-struct ShowDetailsScreen_Previews: PreviewProvider {
+struct MediaDetailsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        ShowDetailsScreen(
-            showType: .movie,
-            show: Show.sample
+        MediaDetailsScreen(
+            mediaType: .movie,
+            media: Media.sample
         )
     }
 }

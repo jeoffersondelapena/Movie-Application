@@ -25,12 +25,12 @@
 "label.series" = "Series";
 "label.episodes" = "Episodes";
 
-// Show List Screen
+// Media List Screen
 "title.movies2023" = "Movies 2023";
 "title.series2023" = "Series 2023";
 "title.withNewEpisodesThisMonth" = "With New Episodes This Month";
 
-// Show Details Screen
+// Media Details Screen
 "title.movieDetails" = "Movie Details";
 "title.seriesDetails" = "Series Details";
 "title.showDetails" = "Show Details";
