@@ -1,5 +1,5 @@
 //
-//  ImageHandlerFailedPlaceholder.swift
+//  BrokenImageView.swift
 //  MovieApplication
 //
 //  Created by Jeofferson Dela Peña on 6/30/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ImageHandlerFailedPlaceholder: View {
+struct BrokenImageView: View {
     private let width: CGFloat?
     private let height: CGFloat?
 
@@ -30,8 +30,8 @@ struct ImageHandlerFailedPlaceholder: View {
     }
 }
 
-struct ImageHandlerFailedPlaceholder_Previews: PreviewProvider {
+struct BrokenImageView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageHandlerFailedPlaceholder()
+        BrokenImageView()
     }
 }

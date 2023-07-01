@@ -16,7 +16,7 @@ struct MediaItem: View {
         ) {
             HStack {
                 if let posterURL = media.posterURL {
-                    ImageHandler(
+                    CacheableImageView(
                         url: posterURL,
                         width: 100,
                         height: 150

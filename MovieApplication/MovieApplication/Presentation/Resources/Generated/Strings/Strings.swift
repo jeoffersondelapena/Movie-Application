@@ -34,12 +34,16 @@ internal enum L10n {
     /// Please try again later.
     internal static let tryAgainlater = L10n.tr("Localizable", "message.tryAgainlater", fallback: "Please try again later.")
   }
-  internal enum Title {
+  internal enum Sample {
     /// Localizable.strings
     ///   MovieApplication
     /// 
     ///   Created by Jeofferson Dela Peña on 6/29/23.
-    internal static let loremIpsum = L10n.tr("Localizable", "title.loremIpsum", fallback: "Lorem Ipsum")
+    internal static let title = L10n.tr("Localizable", "sample.title", fallback: "Lorem Ipsum")
+    /// https://picsum.photos/200
+    internal static let url = L10n.tr("Localizable", "sample.url", fallback: "https://picsum.photos/200")
+  }
+  internal enum Title {
     /// Movie App
     internal static let movieApp = L10n.tr("Localizable", "title.movieApp", fallback: "Movie App")
     /// Movie Details

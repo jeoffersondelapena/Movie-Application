@@ -5,6 +5,7 @@ target 'MovieApplication' do
 
   pod 'SwiftGen', '~> 6.0'
   pod 'SwiftLint'
+  pod 'Kingfisher', '~> 7.0'
   pod 'Moya', '~> 15.0'
 
 end

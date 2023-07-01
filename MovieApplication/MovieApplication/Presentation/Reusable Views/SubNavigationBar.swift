@@ -18,7 +18,7 @@ private struct SubNavigationBar: View {
 
     var body: some View {
         VStack(spacing: 8) {
-            HorizontalDivider()
+            HorizontalDividerView()
 
             Text(title)
                 .applyCustomFont(
@@ -27,13 +27,13 @@ private struct SubNavigationBar: View {
                     color: Asset.ColorAssets.highEmphasisForeground.swiftUIColor
                 )
 
-            HorizontalDivider()
+            HorizontalDividerView()
         }
     }
 }
 
 struct SubNavigationBar_Previews: PreviewProvider {
     static var previews: some View {
-        SubNavigationBar(title: L10n.Title.loremIpsum)
+        SubNavigationBar(title: L10n.Sample.title)
     }
 }

@@ -52,7 +52,6 @@ struct MediaListScreen: View {
             .alert(isPresented: $isShowingErrorAlert) {
                 errorAlert
             }
-            .environmentObject(viewModel)
             .onChange(of: viewModel.errorMessage, perform: onErrorMessageChange)
     }
 

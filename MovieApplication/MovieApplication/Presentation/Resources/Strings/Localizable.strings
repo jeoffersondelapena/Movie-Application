@@ -7,7 +7,8 @@
 */
 
 // Sample
-"title.loremIpsum" = "Lorem Ipsum";
+"sample.title" = "Lorem Ipsum";
+"sample.url" = "https://picsum.photos/200";
 
 // Common
 "title.movieApp" = "Movie App";

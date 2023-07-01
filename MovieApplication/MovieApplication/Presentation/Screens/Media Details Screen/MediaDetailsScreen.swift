@@ -46,7 +46,7 @@ struct MediaDetailsScreen: View {
         ScrollView {
             VStack {
                 if let posterURL = media.posterURL {
-                    ImageHandler(
+                    CacheableImageView(
                         url: posterURL,
                         width: .infinity
                     )
@@ -75,7 +75,7 @@ struct MediaDetailsScreen: View {
                     .applyCustomFont(weight: .w300, size: 14)
 
                 if let backdropURL = media.backdropURL {
-                    ImageHandler(
+                    CacheableImageView(
                         url: backdropURL,
                         width: .infinity
                     )

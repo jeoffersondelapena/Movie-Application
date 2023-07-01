@@ -38,7 +38,7 @@ struct Media: Identifiable {
         id: -1,
         type: .movie,
         title: "Title",
-        posterURL: nil,
+        posterURL: URL(string: L10n.Sample.url),
         backdropURL: nil,
         description: "Description",
         releaseDate: Date(),
