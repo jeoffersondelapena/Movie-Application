@@ -22,7 +22,7 @@ struct GetSeriesResponse: Codable {
     let voteAverage: Double
     let voteCount: Int
 
-    func toDomain(withNewEpisodes: Bool) -> Show {
+    func toDomain(withNewEpisodesThisMonth: Bool) -> Show {
         var posterURL: URL?
         if let posterPath = posterPath {
             posterURL = Env.baseURLImage.appendingPathComponent("/w500\(posterPath)")
@@ -35,7 +35,7 @@ struct GetSeriesResponse: Codable {
 
         return Show(
             id: id,
-            type: .series(withNewEpisodes: withNewEpisodes),
+            type: .series(withNewEpisodesThisMonth: withNewEpisodesThisMonth),
             title: name,
             posterURL: posterURL,
             backdropURL: backdropURL,
@@ -50,9 +50,9 @@ struct GetSeriesResponse: Codable {
 }
 
 extension Array<GetSeriesResponse> {
-    func toDomain(withNewEpisodes: Bool) -> [Show] {
+    func toDomain(withNewEpisodesThisMonth: Bool) -> [Show] {
         self.map { getSeriesResponse in
-            getSeriesResponse.toDomain(withNewEpisodes: withNewEpisodes)
+            getSeriesResponse.toDomain(withNewEpisodesThisMonth: withNewEpisodesThisMonth)
         }
     }
 }

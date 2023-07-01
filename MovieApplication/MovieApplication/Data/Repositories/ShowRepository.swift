@@ -28,8 +28,8 @@ class ShowRepository: BaseRepository {
         switch showType {
         case .movie:
             getMovies(year: year, callback: callback)
-        case .series(let withNewEpisodes):
-            if withNewEpisodes {
+        case .series(let withNewEpisodesThisMonth):
+            if withNewEpisodesThisMonth {
                 getSeriesWithNewEpisodes(callback: callback)
             } else {
                 getSeries(year: year, callback: callback)
@@ -62,7 +62,7 @@ class ShowRepository: BaseRepository {
             let result: Result<[GetSeriesResponse], Error> = handleRawResult(rawResult)
             switch result {
             case .success(let response):
-                callback(.success(response.toDomain(withNewEpisodes: false)))
+                callback(.success(response.toDomain(withNewEpisodesThisMonth: false)))
             case .failure(let error):
                 callback(.failure(error))
             }
@@ -77,7 +77,7 @@ class ShowRepository: BaseRepository {
             let result: Result<[GetSeriesResponse], Error> = handleRawResult(rawResult)
             switch result {
             case .success(let response):
-                callback(.success(response.toDomain(withNewEpisodes: true)))
+                callback(.success(response.toDomain(withNewEpisodesThisMonth: true)))
             case .failure(let error):
                 callback(.failure(error))
             }

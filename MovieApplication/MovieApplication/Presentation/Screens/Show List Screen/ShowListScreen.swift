@@ -23,8 +23,8 @@ struct ShowListScreen: View {
         switch showType {
         case .movie:
             return L10n.Title.movies2023
-        case .series(let withNewEpisodes):
-            if withNewEpisodes {
+        case .series(let withNewEpisodesThisMonth):
+            if withNewEpisodesThisMonth {
                 return L10n.Title.withNewEpisodesThisMonth
             } else {
                 return L10n.Title.series2023
@@ -36,8 +36,8 @@ struct ShowListScreen: View {
         switch showType {
         case .movie:
             return false
-        case .series(let withNewEpisodes):
-            return !withNewEpisodes
+        case .series(let withNewEpisodesThisMonth):
+            return !withNewEpisodesThisMonth
         }
     }
 

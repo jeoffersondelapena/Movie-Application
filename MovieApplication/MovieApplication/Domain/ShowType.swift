@@ -9,5 +9,5 @@ import Foundation
 
 enum ShowType: BinaryEquatable {
     case movie
-    case series(withNewEpisodes: Bool = false)
+    case series(withNewEpisodesThisMonth: Bool = false)
 }

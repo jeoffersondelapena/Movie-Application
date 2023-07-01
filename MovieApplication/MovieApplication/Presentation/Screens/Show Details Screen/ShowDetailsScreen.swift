@@ -12,8 +12,8 @@ struct ShowDetailsScreen: View {
         switch showType {
         case .movie:
             return L10n.Title.movieDetails
-        case .series(let withNewEpisodes):
-            if withNewEpisodes {
+        case .series(let withNewEpisodesThisMonth):
+            if withNewEpisodesThisMonth {
                 return L10n.Title.showDetails
             } else {
                 return L10n.Title.seriesDetails

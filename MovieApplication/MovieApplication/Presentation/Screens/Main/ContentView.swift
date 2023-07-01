@@ -38,7 +38,7 @@ struct ContentView: View {
             }
 
             NavigationStack {
-                ShowListScreen(showType: .series(withNewEpisodes: true))
+                ShowListScreen(showType: .series(withNewEpisodesThisMonth: true))
             }
             .tabItem {
                 Label(
