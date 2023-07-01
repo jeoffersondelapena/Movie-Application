@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct SearchScreen: View {
-    @FocusState private var isFocused: Bool
+    @StateObject private var viewModel = SearchViewModel()
 
-    @State private var searchText = ""
+    @FocusState private var isFocused: Bool
     @State private var showCancelButton: Bool = false
+
+    @StateObject private var textDebounceManager = TextDebounceManager()
 
     private var searchBarView: some View {
         HStack {
@@ -20,9 +22,9 @@ struct SearchScreen: View {
 
                 TextField(
                     "search",
-                    text: $searchText,
+                    text: $textDebounceManager.searchText,
                     onEditingChanged: { _ in
-                        self.showCancelButton = true
+                        showCancelButton = true
                     },
                     onCommit: {
                         print("onCommit")
@@ -31,11 +33,11 @@ struct SearchScreen: View {
 
                 Button(
                     action: {
-                        self.searchText = ""
+                        textDebounceManager.searchText = ""
                     },
                     label: {
                         Image(systemName: "xmark.circle.fill")
-                            .opacity(searchText == "" ? 0 : 1)
+                            .opacity(textDebounceManager.searchText.isEmpty ? 0 : 1)
                     }
                 )
             }
@@ -47,8 +49,8 @@ struct SearchScreen: View {
             if showCancelButton {
                 Button("Cancel") {
                     UIApplication.shared.endEditing(true)
-                    self.searchText = ""
-                    self.showCancelButton = false
+                    textDebounceManager.searchText = ""
+                    showCancelButton = false
                 }
                 .foregroundColor(.accentColor)
             }
@@ -58,7 +60,7 @@ struct SearchScreen: View {
     }
 
     private var searchBarView2: some View {
-        TextField(L10n.Placeholder.whatAreYouLookingFor, text: $searchText)
+        TextField(L10n.Placeholder.whatAreYouLookingFor, text: $textDebounceManager.searchText)
             .padding(8)
             .addHorizontalBorders(
                 color: Asset.ColorAssets.disabledForeground.swiftUIColor
@@ -69,22 +71,21 @@ struct SearchScreen: View {
         VStack {
             searchBarView
                 .focused($isFocused)
-
-            List {
-                Text(searchText)
-
-                Text(searchText)
-            }
         }
         .navigationBarTitle(L10n.Title.search)
         .toolbar {
             ToolbarMenuView(withSearchOption: false)
         }
         .onAppear(perform: focusOnTextField)
+        .onReceive(textDebounceManager.$debouncedText, perform: searchMedias)
     }
 
     private func focusOnTextField() {
         isFocused = true
+    }
+
+    private func searchMedias(searchText: String) {
+        viewModel.searchMedias(searchText: searchText)
     }
 }
 
