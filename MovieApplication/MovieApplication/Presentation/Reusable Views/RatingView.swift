@@ -13,11 +13,16 @@ struct RatingView: View {
     var body: some View {
         HStack {
             Image(systemName: "star.fill")
-                .foregroundColor(.accentColor)
-                .size(24)
+                .foregroundColor(
+                    Asset.ColorAssets.secondaryAccentColor.swiftUIColor
+                )
+                .iconSize(16)
 
             Text(rating.toString())
-                .applyCustomFont()
+                .applyCustomFont(
+                    size: 14,
+                    color: Asset.ColorAssets.highEmphasisForeground.swiftUIColor
+                )
         }
     }
 }

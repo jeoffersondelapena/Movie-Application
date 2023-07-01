@@ -29,7 +29,11 @@ struct MediaItem: View {
 
                 VStack(alignment: .leading) {
                     Text(media.title)
-                        .applyCustomFont(weight: .w700, size: 14)
+                        .applyCustomFont(
+                            weight: .w700,
+                            size: 14,
+                            color: Asset.ColorAssets.highEmphasisForeground.swiftUIColor
+                        )
                         .alignText(.leading)
 
                     if let releaseDate = media.releaseDate {
@@ -39,7 +43,7 @@ struct MediaItem: View {
                     RatingView(rating: media.rating)
 
                     Text(media.description)
-                        .applyCustomFont()
+                        .applyCustomFont(weight: .w300)
                         .alignText(.leading)
                         .lineLimit(3)
                 }

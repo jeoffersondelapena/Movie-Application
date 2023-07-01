@@ -72,4 +72,8 @@ extension View {
             self.frame(maxHeight: .infinity)
         }
     }
+
+    func iconSize(_ value: CGFloat) -> some View {
+        self.font(.system(size: value))
+    }
 }

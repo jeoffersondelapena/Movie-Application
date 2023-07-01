@@ -15,6 +15,8 @@ internal enum L10n {
     internal static let ok = L10n.tr("Localizable", "action.ok", fallback: "OK")
   }
   internal enum Label {
+    /// Dark Mode
+    internal static let darkMode = L10n.tr("Localizable", "label.darkMode", fallback: "Dark Mode")
     /// Episodes
     internal static let episodes = L10n.tr("Localizable", "label.episodes", fallback: "Episodes")
     /// Movies
@@ -29,6 +31,10 @@ internal enum L10n {
   internal enum Message {
     /// Please try again later.
     internal static let tryAgainlater = L10n.tr("Localizable", "message.tryAgainlater", fallback: "Please try again later.")
+  }
+  internal enum Placeholder {
+    /// Search
+    internal static let search = L10n.tr("Localizable", "placeholder.search", fallback: "Search")
   }
   internal enum Title {
     /// Localizable.strings

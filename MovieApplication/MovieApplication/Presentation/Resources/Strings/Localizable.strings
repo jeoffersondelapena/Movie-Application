@@ -12,10 +12,11 @@
 // Common
 "title.movieApp" = "Movie App";
 "action.ok" = "OK";
-
-// Error Alert
 "title.somethingWentWrong" = "Something went wrong";
 "message.tryAgainlater" = "Please try again later.";
+
+// NavigationBar
+"label.darkMode" = "Dark Mode";
 
 // RatingView
 "label.ratingString" = "%@ (%@ reviews)";
@@ -25,12 +26,15 @@
 "label.series" = "Series";
 "label.episodes" = "Episodes";
 
-// Media List Screen
+// MediaListScreen
 "title.movies2023" = "Movies 2023";
 "title.series2023" = "Series 2023";
 "title.withNewEpisodesThisMonth" = "With New Episodes This Month";
 
-// Media Details Screen
+// MediaDetailsScreen
 "title.movieDetails" = "Movie Details";
 "title.seriesDetails" = "Series Details";
 "title.showDetails" = "Show Details";
+
+// SearchScreen
+"placeholder.search" = "Search";

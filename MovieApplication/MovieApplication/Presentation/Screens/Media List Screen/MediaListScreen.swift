@@ -16,6 +16,8 @@ struct MediaListScreen: View {
         )
     )
 
+    @State private var isShowingSearchScreen = false
+
     @State private var isShowingErrorAlert = false
     @State private var errorMessage: String?
 
@@ -54,7 +56,8 @@ struct MediaListScreen: View {
         }
         .dynamicListStyle(isInset: isInset)
         .showSubNavigationBar(title: subNavigationBarTitle)
-        .showNavigationBar()
+        .showNavigationBar(onSearchTap: showSearchScreen)
+        .onAppear(perform: fetchContents)
         .alert(isPresented: $isShowingErrorAlert) {
             Alert(
                 title: Text(L10n.Title.somethingWentWrong),
@@ -64,12 +67,18 @@ struct MediaListScreen: View {
                 }
             )
         }
-        .onAppear(perform: fetchContents)
+        .fullScreenCover(isPresented: $isShowingSearchScreen) {
+            SearchScreen()
+        }
         .onChange(of: viewModel.errorMessage, perform: onErrorMessageChange)
     }
 
     private func fetchContents() {
         viewModel.getMedias(mediaType: mediaType)
+    }
+
+    private func showSearchScreen() {
+        isShowingSearchScreen = true
     }
 
     private func onErrorMessageChange(errorMessage: String?) {

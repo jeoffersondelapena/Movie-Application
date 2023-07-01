@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-
     init() {
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.configureWithOpaqueBackground()

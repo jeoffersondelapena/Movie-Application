@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct MediaDetailsScreen: View {
+    @Environment(\.dismiss) private var dismiss
+
+    @State private var isShowingSearchScreen = false
+
     var navigationBarTitle: String {
         switch mediaType {
         case .movie:
@@ -36,7 +40,11 @@ struct MediaDetailsScreen: View {
                 }
 
                 Text(media.title)
-                    .applyCustomFont(weight: .w700, size: 24)
+                    .applyCustomFont(
+                        weight: .w700,
+                        size: 24,
+                        color: Asset.ColorAssets.highEmphasisForeground.swiftUIColor
+                    )
                     .alignText(.center)
 
                 HStack {
@@ -50,7 +58,7 @@ struct MediaDetailsScreen: View {
                 }
 
                 Text(media.description)
-                    .applyCustomFont(size: 14)
+                    .applyCustomFont(weight: .w300, size: 14)
 
                 if let backdropURL = media.backdropURL {
                     ImageHandler(
@@ -61,8 +69,23 @@ struct MediaDetailsScreen: View {
             }
             .padding(16)
         }
-        .navigationTitle(navigationBarTitle)
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .showNavigationBar(
+            title: navigationBarTitle,
+            onBackTap: dismissCurrentScreen,
+            onSearchTap: showSearchScreen
+        )
+        .fullScreenCover(isPresented: $isShowingSearchScreen) {
+            SearchScreen()
+        }
+    }
+
+    private func dismissCurrentScreen() {
+        dismiss()
+    }
+
+    private func showSearchScreen() {
+        isShowingSearchScreen = true
     }
 }
 

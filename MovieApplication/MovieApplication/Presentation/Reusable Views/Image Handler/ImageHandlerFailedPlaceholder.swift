@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ImageHandlerFailedPlaceholder: View {
-    let width: CGFloat?
-    let height: CGFloat?
+    private let width: CGFloat?
+    private let height: CGFloat?
 
     init(width: CGFloat? = nil, height: CGFloat? = nil) {
         self.width = width
@@ -18,10 +18,14 @@ struct ImageHandlerFailedPlaceholder: View {
 
     var body: some View {
         ZStack {
-            Color(uiColor: Asset.ColorAssets.d3D3D3.color)
+            Asset.ColorAssets.disabledForeground.swiftUIColor
                 .size(width: width, height: height)
 
             Image(systemName: "photo")
+                .foregroundColor(
+                    Asset.ColorAssets.highEmphasisForeground.swiftUIColor
+                )
+                .iconSize(16)
         }
     }
 }

@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ImageHandler: View {
-    let url: URL?
-    let width: CGFloat?
-    let height: CGFloat?
+    private let url: URL?
+    private let width: CGFloat?
+    private let height: CGFloat?
 
     init(url: URL?, width: CGFloat? = nil, height: CGFloat? = nil) {
         self.url = url
