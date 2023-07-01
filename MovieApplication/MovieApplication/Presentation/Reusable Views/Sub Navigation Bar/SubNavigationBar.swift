@@ -17,18 +17,16 @@ private struct SubNavigationBar: View {
     let title: String
 
     var body: some View {
-        VStack(spacing: 8) {
-            HorizontalDividerView()
-
-            Text(title)
-                .applyCustomFont(
-                    weight: .w700,
-                    size: 14,
-                    color: Asset.ColorAssets.highEmphasisForeground.swiftUIColor
-                )
-
-            HorizontalDividerView()
-        }
+        Text(title)
+            .applyCustomFont(
+                weight: .w700,
+                size: 14,
+                color: Asset.ColorAssets.highEmphasisForeground.swiftUIColor
+            )
+            .padding(8)
+            .addHorizontalBorders(
+                color: Asset.ColorAssets.disabledForeground.swiftUIColor
+            )
     }
 }
 

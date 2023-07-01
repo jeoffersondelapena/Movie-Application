@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct HorizontalDividerView: View {
+    private let color: Color
+
+    init(color: Color = Asset.ColorAssets.highEmphasisForeground.swiftUIColor) {
+        self.color = color
+    }
+
     var body: some View {
-        Asset.ColorAssets.highEmphasisForeground.swiftUIColor
+        color
             .frame(maxWidth: .infinity, maxHeight: 1)
     }
 }

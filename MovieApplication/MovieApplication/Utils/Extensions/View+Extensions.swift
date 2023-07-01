@@ -8,6 +8,25 @@
 import SwiftUI
 
 extension View {
+    func showAtTheTop(view: some View) -> some View {
+        VStack(spacing: 0) {
+            view
+            self.frame(maxHeight: .infinity)
+        }
+    }
+
+    func addHorizontalBorders(
+        color: Color = Asset.ColorAssets.highEmphasisForeground.swiftUIColor
+    ) -> some View {
+        VStack(spacing: 0) {
+            HorizontalDividerView(color: color)
+
+            self
+
+            HorizontalDividerView(color: color)
+        }
+    }
+    
     func symmetricPadding(
         horizontal: CGFloat? = nil,
         vertical: CGFloat? = nil
@@ -64,13 +83,6 @@ extension View {
         }
 
         return AnyView(view)
-    }
-
-    func showAtTheTop(view: some View) -> some View {
-        VStack(spacing: 0) {
-            view
-            self.frame(maxHeight: .infinity)
-        }
     }
 
     func iconSize(_ value: CGFloat) -> some View {

@@ -8,14 +8,34 @@
 import SwiftUI
 
 struct SearchScreen: View {
+    @FocusState private var isFocused: Bool
+
     @State private var searchText = ""
 
     var body: some View {
         VStack {
-            Text(searchText)
+            TextField(L10n.Placeholder.whatAreYouLookingFor, text: $searchText)
+                .focused($isFocused)
+                .padding(8)
+                .addHorizontalBorders(
+                    color: Asset.ColorAssets.disabledForeground.swiftUIColor
+                )
+
+            List {
+                Text(searchText)
+
+                Text(searchText)
+            }
         }
-        .navigationBarTitle(L10n.Title.search, displayMode: .inline)
-        .searchable(text: $searchText)
+        .navigationBarTitle(L10n.Title.search)
+        .toolbar {
+            ToolbarMenuView(withSearchOption: false)
+        }
+        .onAppear(perform: focusOnTextField)
+    }
+
+    private func focusOnTextField() {
+        isFocused = true
     }
 }
 

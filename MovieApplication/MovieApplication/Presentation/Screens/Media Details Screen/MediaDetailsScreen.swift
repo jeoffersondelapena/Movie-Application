@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct MediaDetailsScreen: View {
-    @AppStorage("isDarkMode") private var isDarkMode = true
-
     var navigationBarTitle: String {
         switch media.type {
         case .movie:
@@ -21,23 +19,6 @@ struct MediaDetailsScreen: View {
                 return L10n.Title.seriesDetails
             }
         }
-    }
-
-    private var toolbar: some View {
-        Menu(
-            content: {
-                Toggle(isOn: $isDarkMode) {
-                    Label(L10n.Label.darkMode, systemImage: "moon")
-                }
-
-                NavigationLink(destination: SearchScreen()) {
-                    Label(L10n.Label.search, systemImage: "magnifyingglass")
-                }
-            },
-            label: {
-                Image(systemName: "ellipsis")
-            }
-        )
     }
 
     let media: Media
@@ -83,9 +64,9 @@ struct MediaDetailsScreen: View {
             }
             .padding(16)
         }
-        .navigationBarTitle(navigationBarTitle, displayMode: .inline)
+        .navigationBarTitle(navigationBarTitle)
         .toolbar {
-            toolbar
+            ToolbarMenuView()
         }
     }
 }

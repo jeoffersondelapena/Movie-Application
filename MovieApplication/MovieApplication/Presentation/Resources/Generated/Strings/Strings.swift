@@ -34,6 +34,10 @@ internal enum L10n {
     /// Please try again later.
     internal static let tryAgainlater = L10n.tr("Localizable", "message.tryAgainlater", fallback: "Please try again later.")
   }
+  internal enum Placeholder {
+    /// What are you looking for?
+    internal static let whatAreYouLookingFor = L10n.tr("Localizable", "placeholder.whatAreYouLookingFor", fallback: "What are you looking for?")
+  }
   internal enum Sample {
     /// Localizable.strings
     ///   MovieApplication

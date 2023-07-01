@@ -40,3 +40,4 @@
 
 // SearchScreen
 "title.search" = "Search";
+"placeholder.whatAreYouLookingFor" = "What are you looking for?";
