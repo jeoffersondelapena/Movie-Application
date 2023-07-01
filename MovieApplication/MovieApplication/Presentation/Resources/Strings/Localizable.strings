@@ -12,9 +12,12 @@
 
 // Common
 "title.movieApp" = "Movie App";
-"action.ok" = "OK";
-"title.somethingWentWrong" = "Something went wrong";
+
+"title.somethingWentWrong" = "Something Went Wrong";
 "message.tryAgainlater" = "Please try again later.";
+
+"title.noResults" = "No Results";
+"message.tryOtherKeywords" = "Please try other keywords.";
 
 // NavigationBar
 "label.search" = "Search";

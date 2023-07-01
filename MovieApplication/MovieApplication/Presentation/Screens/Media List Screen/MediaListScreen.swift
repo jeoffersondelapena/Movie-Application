@@ -15,9 +15,6 @@ struct MediaListScreen: View {
         )
     )
 
-    @State private var isShowingErrorAlert = false
-    @State private var errorMessage: String?
-
     private var subNavigationBarTitle: String {
         switch mediaType {
         case .movie:
@@ -31,49 +28,17 @@ struct MediaListScreen: View {
         }
     }
 
-    private var errorAlert: Alert {
-        Alert(
-            title: Text(L10n.Title.somethingWentWrong),
-            message: Text(errorMessage ?? L10n.Message.tryAgainlater),
-            dismissButton: .default(Text(L10n.Action.ok)) {
-                dismissErrorAlert()
-            }
-        )
-    }
-
     let mediaType: MediaType
 
     var body: some View {
-        MediaListView(medias: viewModel.medias)
+        MediaListView(mediasDataState: viewModel.mediasDataState)
             .showSubNavigationBar(title: subNavigationBarTitle)
             .showNavigationBar()
             .onAppear(perform: fetchContents)
-            .alert(isPresented: $isShowingErrorAlert) {
-                errorAlert
-            }
-            .onChange(of: viewModel.errorMessage, perform: onErrorMessageChange)
     }
 
     private func fetchContents() {
         viewModel.getMedias(mediaType: mediaType)
-    }
-
-    private func onErrorMessageChange(errorMessage: String?) {
-        if let errorMessage = errorMessage {
-            showErrorAlert(errorMessage: errorMessage)
-        } else {
-            dismissErrorAlert()
-        }
-    }
-
-    private func showErrorAlert(errorMessage: String) {
-        isShowingErrorAlert = true
-        self.errorMessage = errorMessage
-    }
-
-    private func dismissErrorAlert() {
-        isShowingErrorAlert = false
-        self.errorMessage = nil
     }
 }
 
