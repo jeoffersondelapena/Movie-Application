@@ -16,7 +16,7 @@ struct Env {
 
     private static let infoDictionary: [String: Any] = {
         guard let infoDictionary = Bundle.main.infoDictionary else {
-            fatalError("plist file not found.")
+            fatalError("plist file not found")
         }
         return infoDictionary
     }()
@@ -33,7 +33,7 @@ struct Env {
             fatalError(notSetInPlistErrorMessage(Key.baseURL))
         }
         guard let baseURL = URL(string: baseURLString) else {
-            fatalError("\(Key.baseURL) value is invalid.")
+            fatalError("Invalid \(Key.baseURL)")
         }
         return baseURL
     }()
@@ -43,12 +43,12 @@ struct Env {
             fatalError(notSetInPlistErrorMessage(Key.baseURLImage))
         }
         guard let baseURLImage = URL(string: baseURLImageString) else {
-            fatalError("\(Key.baseURLImage) value is invalid.")
+            fatalError("Invalid \(Key.baseURLImage)")
         }
         return baseURLImage
     }()
 
     private static func notSetInPlistErrorMessage(_ key: String) -> String {
-        "\(key) not set in plist."
+        "\(key) not set in plist"
     }
 }

@@ -18,15 +18,20 @@ private struct SubNavigationBar: View {
 
     var body: some View {
         Text(title)
-            .applyCustomFont(weight: .w700, size: 14)
-            .alignText(.center)
-            .padding(4)
-            .background(Color.accentColor)
+            .applyCustomFont(
+                weight: .w700,
+                size: 14,
+                color: Asset.ColorAssets.highEmphasisForeground.swiftUIColor
+            )
+            .padding(8)
+            .addHorizontalBorders(
+                color: Asset.ColorAssets.disabledForeground.swiftUIColor
+            )
     }
 }
 
 struct SubNavigationBar_Previews: PreviewProvider {
     static var previews: some View {
-        SubNavigationBar(title: L10n.Title.loremIpsum)
+        SubNavigationBar(title: L10n.Sample.title)
     }
 }

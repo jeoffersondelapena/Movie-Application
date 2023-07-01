@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-
     init() {
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.configureWithOpaqueBackground()
@@ -18,7 +17,7 @@ struct ContentView: View {
     var body: some View {
         TabView {
             NavigationStack {
-                ShowListScreen(showType: .movie)
+                MediaListScreen(mediaType: .movie)
             }
             .tabItem {
                 Label(
@@ -28,7 +27,7 @@ struct ContentView: View {
             }
 
             NavigationStack {
-                ShowListScreen(showType: .series())
+                MediaListScreen(mediaType: .series())
             }
             .tabItem {
                 Label(
@@ -38,7 +37,7 @@ struct ContentView: View {
             }
 
             NavigationStack {
-                ShowListScreen(showType: .series(withNewEpisodes: true))
+                MediaListScreen(mediaType: .series(withNewEpisodesThisMonth: true))
             }
             .tabItem {
                 Label(

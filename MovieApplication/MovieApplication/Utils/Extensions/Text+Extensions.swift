@@ -36,7 +36,7 @@ extension Text {
     func applyCustomFont(
         weight: FontWeight = .w400,
         size: CGFloat = 12,
-        color: Color = .white
+        color: Color = Asset.ColorAssets.mediumEmphasisForeground.swiftUIColor
     ) -> Text {
         let fontConvertible: FontConvertible
 

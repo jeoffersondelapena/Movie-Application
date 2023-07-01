@@ -15,6 +15,8 @@ internal enum L10n {
     internal static let ok = L10n.tr("Localizable", "action.ok", fallback: "OK")
   }
   internal enum Label {
+    /// Dark Mode
+    internal static let darkMode = L10n.tr("Localizable", "label.darkMode", fallback: "Dark Mode")
     /// Episodes
     internal static let episodes = L10n.tr("Localizable", "label.episodes", fallback: "Episodes")
     /// Movies
@@ -23,6 +25,8 @@ internal enum L10n {
     internal static func ratingString(_ p1: Any, _ p2: Any) -> String {
       return L10n.tr("Localizable", "label.ratingString", String(describing: p1), String(describing: p2), fallback: "%@ (%@ reviews)")
     }
+    /// Search
+    internal static let search = L10n.tr("Localizable", "label.search", fallback: "Search")
     /// Series
     internal static let series = L10n.tr("Localizable", "label.series", fallback: "Series")
   }
@@ -30,18 +34,28 @@ internal enum L10n {
     /// Please try again later.
     internal static let tryAgainlater = L10n.tr("Localizable", "message.tryAgainlater", fallback: "Please try again later.")
   }
-  internal enum Title {
+  internal enum Placeholder {
+    /// What are you looking for?
+    internal static let whatAreYouLookingFor = L10n.tr("Localizable", "placeholder.whatAreYouLookingFor", fallback: "What are you looking for?")
+  }
+  internal enum Sample {
     /// Localizable.strings
     ///   MovieApplication
     /// 
     ///   Created by Jeofferson Dela Peña on 6/29/23.
-    internal static let loremIpsum = L10n.tr("Localizable", "title.loremIpsum", fallback: "Lorem Ipsum")
+    internal static let title = L10n.tr("Localizable", "sample.title", fallback: "Lorem Ipsum")
+    /// https://picsum.photos/200
+    internal static let url = L10n.tr("Localizable", "sample.url", fallback: "https://picsum.photos/200")
+  }
+  internal enum Title {
     /// Movie App
     internal static let movieApp = L10n.tr("Localizable", "title.movieApp", fallback: "Movie App")
     /// Movie Details
     internal static let movieDetails = L10n.tr("Localizable", "title.movieDetails", fallback: "Movie Details")
     /// Movies 2023
     internal static let movies2023 = L10n.tr("Localizable", "title.movies2023", fallback: "Movies 2023")
+    /// Search
+    internal static let search = L10n.tr("Localizable", "title.search", fallback: "Search")
     /// Series 2023
     internal static let series2023 = L10n.tr("Localizable", "title.series2023", fallback: "Series 2023")
     /// Series Details

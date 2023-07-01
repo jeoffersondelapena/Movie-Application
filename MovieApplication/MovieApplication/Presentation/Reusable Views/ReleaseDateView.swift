@@ -13,11 +13,16 @@ struct ReleaseDateView: View {
     var body: some View {
         HStack {
             Image(systemName: "calendar")
-                .foregroundColor(.accentColor)
-                .size(24)
+                .foregroundColor(
+                    Asset.ColorAssets.secondaryAccentColor.swiftUIColor
+                )
+                .iconSize(16)
 
             Text(DateTimeManager.dateToMmmmDdYyyy(releaseDate))
-                .applyCustomFont(weight: .w300)
+                .applyCustomFont(
+                    size: 14,
+                    color: Asset.ColorAssets.highEmphasisForeground.swiftUIColor
+                )
         }
     }
 }

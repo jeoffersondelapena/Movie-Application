@@ -23,7 +23,11 @@ internal typealias AssetColorTypeAlias = ColorAsset.Color
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Asset {
   internal enum ColorAssets {
-    internal static let d3D3D3 = ColorAsset(name: "D3D3D3")
+    internal static let disabledForeground = ColorAsset(name: "DisabledForeground")
+    internal static let error = ColorAsset(name: "Error")
+    internal static let highEmphasisForeground = ColorAsset(name: "HighEmphasisForeground")
+    internal static let mediumEmphasisForeground = ColorAsset(name: "MediumEmphasisForeground")
+    internal static let secondaryAccentColor = ColorAsset(name: "SecondaryAccentColor")
   }
   internal enum ImageAssets {
   }

@@ -8,22 +8,27 @@
 import SwiftUI
 
 struct RatingView: View {
-    let rating: Show.Rating
+    let rating: Media.Rating
 
     var body: some View {
         HStack {
             Image(systemName: "star.fill")
-                .foregroundColor(.accentColor)
-                .size(24)
+                .foregroundColor(
+                    Asset.ColorAssets.secondaryAccentColor.swiftUIColor
+                )
+                .iconSize(16)
 
             Text(rating.toString())
-                .applyCustomFont()
+                .applyCustomFont(
+                    size: 14,
+                    color: Asset.ColorAssets.highEmphasisForeground.swiftUIColor
+                )
         }
     }
 }
 
 struct RatingView_Previews: PreviewProvider {
     static var previews: some View {
-        RatingView(rating: Show.Rating.sample)
+        RatingView(rating: Media.Rating.sample)
     }
 }

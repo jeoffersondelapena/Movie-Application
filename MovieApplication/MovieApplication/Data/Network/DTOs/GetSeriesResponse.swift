@@ -22,7 +22,7 @@ struct GetSeriesResponse: Codable {
     let voteAverage: Double
     let voteCount: Int
 
-    func toDomain(withNewEpisodes: Bool) -> Show {
+    func toDomain(withNewEpisodesThisMonth: Bool) -> Media {
         var posterURL: URL?
         if let posterPath = posterPath {
             posterURL = Env.baseURLImage.appendingPathComponent("/w500\(posterPath)")
@@ -33,15 +33,15 @@ struct GetSeriesResponse: Codable {
             backdropURL = Env.baseURLImage.appendingPathComponent("/w780\(backdropPath)")
         }
 
-        return Show(
+        return Media(
             id: id,
-            type: .series(withNewEpisodes: withNewEpisodes),
+            type: .series(withNewEpisodesThisMonth: withNewEpisodesThisMonth),
             title: name,
             posterURL: posterURL,
             backdropURL: backdropURL,
             description: overview,
             releaseDate: DateTimeManager.yyyyMmDdToDate(firstAirDate),
-            rating: Show.Rating(
+            rating: Media.Rating(
                 ratingAverage: voteAverage,
                 ratingCount: voteCount
             )
@@ -50,9 +50,9 @@ struct GetSeriesResponse: Codable {
 }
 
 extension Array<GetSeriesResponse> {
-    func toDomain(withNewEpisodes: Bool) -> [Show] {
+    func toDomain(withNewEpisodesThisMonth: Bool) -> [Media] {
         self.map { getSeriesResponse in
-            getSeriesResponse.toDomain(withNewEpisodes: withNewEpisodes)
+            getSeriesResponse.toDomain(withNewEpisodesThisMonth: withNewEpisodesThisMonth)
         }
     }
 }

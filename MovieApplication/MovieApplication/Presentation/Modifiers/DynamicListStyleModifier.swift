@@ -8,19 +8,19 @@
 import SwiftUI
 
 extension View {
-    func dynamicListStyle(isInset: Bool) -> some View {
-        modifier(DynamicListStyleModifier(isInset: isInset))
+    func dynamicListStyle(isGrouped: Bool) -> some View {
+        modifier(DynamicListStyleModifier(isGrouped: isGrouped))
     }
 }
 
 struct DynamicListStyleModifier: ViewModifier {
-    let isInset: Bool
+    let isGrouped: Bool
 
     func body(content: Content) -> some View {
-        if isInset {
-            content.listStyle(.insetGrouped)
+        if isGrouped {
+            content
         } else {
-            content.listStyle(.grouped)
+            content.listStyle(.plain)
         }
     }
 }
