@@ -26,7 +26,7 @@ extension View {
             HorizontalDividerView(color: color)
         }
     }
-    
+
     func symmetricPadding(
         horizontal: CGFloat? = nil,
         vertical: CGFloat? = nil

@@ -10,29 +10,35 @@ import SwiftUI
 struct ToolbarMenuView: View {
     @AppStorage("isDarkMode") private var isDarkMode = true
 
+    private var darkModeToggleView: some View {
+        Toggle(isOn: $isDarkMode) {
+            Label(L10n.Label.darkMode, systemImage: "moon")
+        }
+    }
+
     private let withSearchOption: Bool
 
     init(withSearchOption: Bool = true) {
         self.withSearchOption = withSearchOption
     }
-    
-    var body: some View {
-        Menu(
-            content: {
-                Toggle(isOn: $isDarkMode) {
-                    Label(L10n.Label.darkMode, systemImage: "moon")
-                }
 
-                if withSearchOption {
+    var body: some View {
+        if !withSearchOption {
+            darkModeToggleView
+        } else {
+            Menu(
+                content: {
+                    darkModeToggleView
+
                     NavigationLink(destination: SearchScreen()) {
                         Label(L10n.Label.search, systemImage: "magnifyingglass")
                     }
+                },
+                label: {
+                    Image(systemName: "ellipsis")
                 }
-            },
-            label: {
-                Image(systemName: "ellipsis")
-            }
-        )
+            )
+        }
     }
 }
 

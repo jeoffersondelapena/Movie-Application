@@ -142,14 +142,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		400A13DA2A50B46700B28D47 /* Sub Navigation Bar */ = {
-			isa = PBXGroup;
-			children = (
-				403360ED2A4F9AE60027D509 /* SubNavigationBar.swift */,
-			);
-			path = "Sub Navigation Bar";
-			sourceTree = "<group>";
-		};
 		4024FD382A4DCA470076559C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,8 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				40B1E5422A5039EE005CCA3B /* Navigation Bar */,
-				400A13DA2A50B46700B28D47 /* Sub Navigation Bar */,
 				403360A82A4EEDE90027D509 /* Cacheable Image View */,
+				403360ED2A4F9AE60027D509 /* SubNavigationBar.swift */,
 				40B1E54C2A50629B005CCA3B /* HorizontalDividerView.swift */,
 				403360E42A4F7C8A0027D509 /* ReleaseDateView.swift */,
 				403360C22A4F04680027D509 /* RatingView.swift */,
