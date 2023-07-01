@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct MediaDetailsScreen: View {
-    @Environment(\.dismiss) private var dismiss
-
-    @State private var isShowingSearchScreen = false
+    @AppStorage("isDarkMode") private var isDarkMode = true
 
     var navigationBarTitle: String {
-        switch mediaType {
+        switch media.type {
         case .movie:
             return L10n.Title.movieDetails
         case .series(let withNewEpisodesThisMonth):
@@ -25,7 +23,23 @@ struct MediaDetailsScreen: View {
         }
     }
 
-    let mediaType: MediaType
+    private var toolbar: some View {
+        Menu(
+            content: {
+                Toggle(isOn: $isDarkMode) {
+                    Label(L10n.Label.darkMode, systemImage: "moon")
+                }
+
+                NavigationLink(destination: SearchScreen()) {
+                    Label(L10n.Label.search, systemImage: "magnifyingglass")
+                }
+            },
+            label: {
+                Image(systemName: "ellipsis")
+            }
+        )
+    }
+
     let media: Media
 
     var body: some View {
@@ -69,31 +83,15 @@ struct MediaDetailsScreen: View {
             }
             .padding(16)
         }
-        .navigationBarBackButtonHidden(true)
-        .showNavigationBar(
-            title: navigationBarTitle,
-            onBackTap: dismissCurrentScreen,
-            onSearchTap: showSearchScreen
-        )
-        .fullScreenCover(isPresented: $isShowingSearchScreen) {
-            SearchScreen()
+        .navigationBarTitle(navigationBarTitle, displayMode: .inline)
+        .toolbar {
+            toolbar
         }
-    }
-
-    private func dismissCurrentScreen() {
-        dismiss()
-    }
-
-    private func showSearchScreen() {
-        isShowingSearchScreen = true
     }
 }
 
 struct MediaDetailsScreen_Previews: PreviewProvider {
     static var previews: some View {
-        MediaDetailsScreen(
-            mediaType: .movie,
-            media: Media.sample
-        )
+        MediaDetailsScreen(media: Media.sample)
     }
 }

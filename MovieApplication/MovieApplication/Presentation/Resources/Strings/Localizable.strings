@@ -16,6 +16,7 @@
 "message.tryAgainlater" = "Please try again later.";
 
 // NavigationBar
+"label.search" = "Search";
 "label.darkMode" = "Dark Mode";
 
 // RatingView
@@ -37,4 +38,4 @@
 "title.showDetails" = "Show Details";
 
 // SearchScreen
-"placeholder.search" = "Search";
+"title.search" = "Search";

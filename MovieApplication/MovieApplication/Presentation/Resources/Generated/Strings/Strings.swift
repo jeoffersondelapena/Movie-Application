@@ -25,16 +25,14 @@ internal enum L10n {
     internal static func ratingString(_ p1: Any, _ p2: Any) -> String {
       return L10n.tr("Localizable", "label.ratingString", String(describing: p1), String(describing: p2), fallback: "%@ (%@ reviews)")
     }
+    /// Search
+    internal static let search = L10n.tr("Localizable", "label.search", fallback: "Search")
     /// Series
     internal static let series = L10n.tr("Localizable", "label.series", fallback: "Series")
   }
   internal enum Message {
     /// Please try again later.
     internal static let tryAgainlater = L10n.tr("Localizable", "message.tryAgainlater", fallback: "Please try again later.")
-  }
-  internal enum Placeholder {
-    /// Search
-    internal static let search = L10n.tr("Localizable", "placeholder.search", fallback: "Search")
   }
   internal enum Title {
     /// Localizable.strings
@@ -48,6 +46,8 @@ internal enum L10n {
     internal static let movieDetails = L10n.tr("Localizable", "title.movieDetails", fallback: "Movie Details")
     /// Movies 2023
     internal static let movies2023 = L10n.tr("Localizable", "title.movies2023", fallback: "Movies 2023")
+    /// Search
+    internal static let search = L10n.tr("Localizable", "title.search", fallback: "Search")
     /// Series 2023
     internal static let series2023 = L10n.tr("Localizable", "title.series2023", fallback: "Series 2023")
     /// Series Details

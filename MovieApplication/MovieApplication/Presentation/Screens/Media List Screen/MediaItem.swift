@@ -8,15 +8,11 @@
 import SwiftUI
 
 struct MediaItem: View {
-    let mediaType: MediaType
     let media: Media
 
     var body: some View {
         NavigationLink(
-            destination: MediaDetailsScreen(
-                mediaType: mediaType,
-                media: media
-            )
+            destination: MediaDetailsScreen(media: media)
         ) {
             HStack {
                 if let posterURL = media.posterURL {
@@ -54,6 +50,6 @@ struct MediaItem: View {
 
 struct MediaItem_Previews: PreviewProvider {
     static var previews: some View {
-        MediaItem(mediaType: .movie, media: Media.sample)
+        MediaItem(media: Media.sample)
     }
 }

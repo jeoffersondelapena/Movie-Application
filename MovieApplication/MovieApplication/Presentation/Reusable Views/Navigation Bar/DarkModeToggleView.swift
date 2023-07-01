@@ -11,9 +11,9 @@ struct DarkModeToggleView: View {
     @AppStorage("isDarkMode") private var isDarkMode = true
 
     var body: some View {
-        Image(systemName: isDarkMode ? "moon.fill" : "sun.max.fill")
+        Image(systemName: isDarkMode ? "moon" : "sun.max")
             .foregroundColor(.accentColor)
-            .iconSize(32)
+            .iconSize(24)
             .onTapGesture(perform: toggleDarkMode)
     }
 

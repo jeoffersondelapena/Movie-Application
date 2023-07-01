@@ -12,13 +12,9 @@ struct SearchScreen: View {
 
     var body: some View {
         VStack {
-            Text("Search \(searchText)")
-            NavigationLink(
-                destination: Text("Test")
-            ) {
-                Text("Next")
-            }
+            Text(searchText)
         }
+        .navigationBarTitle(L10n.Title.search, displayMode: .inline)
         .searchable(text: $searchText)
     }
 }

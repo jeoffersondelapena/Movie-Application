@@ -16,8 +16,6 @@ struct MediaListScreen: View {
         )
     )
 
-    @State private var isShowingSearchScreen = false
-
     @State private var isShowingErrorAlert = false
     @State private var errorMessage: String?
 
@@ -34,51 +32,32 @@ struct MediaListScreen: View {
         }
     }
 
-    private var isInset: Bool {
-        switch mediaType {
-        case .movie:
-            return false
-        case .series(let withNewEpisodesThisMonth):
-            return !withNewEpisodesThisMonth
-        }
+    private var errorAlert: Alert {
+        Alert(
+            title: Text(L10n.Title.somethingWentWrong),
+            message: Text(errorMessage ?? L10n.Message.tryAgainlater),
+            dismissButton: .default(Text(L10n.Action.ok)) {
+                dismissErrorAlert()
+            }
+        )
     }
 
     let mediaType: MediaType
 
     var body: some View {
-        List {
-            ForEach(viewModel.medias) { media in
-                MediaItem(
-                    mediaType: mediaType,
-                    media: media
-                )
+        MediaListView(medias: viewModel.medias)
+            .showSubNavigationBar(title: subNavigationBarTitle)
+            .showNavigationBar()
+            .onAppear(perform: fetchContents)
+            .alert(isPresented: $isShowingErrorAlert) {
+                errorAlert
             }
-        }
-        .dynamicListStyle(isInset: isInset)
-        .showSubNavigationBar(title: subNavigationBarTitle)
-        .showNavigationBar(onSearchTap: showSearchScreen)
-        .onAppear(perform: fetchContents)
-        .alert(isPresented: $isShowingErrorAlert) {
-            Alert(
-                title: Text(L10n.Title.somethingWentWrong),
-                message: Text(errorMessage ?? L10n.Message.tryAgainlater),
-                dismissButton: .default(Text(L10n.Action.ok)) {
-                    dismissErrorAlert()
-                }
-            )
-        }
-        .fullScreenCover(isPresented: $isShowingSearchScreen) {
-            SearchScreen()
-        }
-        .onChange(of: viewModel.errorMessage, perform: onErrorMessageChange)
+            .environmentObject(viewModel)
+            .onChange(of: viewModel.errorMessage, perform: onErrorMessageChange)
     }
 
     private func fetchContents() {
         viewModel.getMedias(mediaType: mediaType)
-    }
-
-    private func showSearchScreen() {
-        isShowingSearchScreen = true
     }
 
     private func onErrorMessageChange(errorMessage: String?) {
