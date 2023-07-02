@@ -25,7 +25,7 @@ struct MediaDetailsScreen: View {
 
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(spacing: 8) {
                 if let posterURL = media.posterURL {
                     CacheableImageView(
                         url: posterURL,
@@ -42,7 +42,7 @@ struct MediaDetailsScreen: View {
                     )
                     .alignText(.center)
 
-                HStack {
+                HStack(spacing: 8) {
                     RatingView(rating: media.rating)
 
                     Spacer()
