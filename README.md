@@ -1,15 +1,24 @@
 # Movie App
-
 **Developer: Jeofferson Dela Peña**
 
 Millions of movies and TV shows to discover. Explore now.
 
 # Screenshots
 
-Light Mode
--
-<img src="Screenshots/LM1.png" width="400"> <img src="Screenshots/LM2.png" width="800"> <img src="Screenshots/LM3.png" width="400"> <img src="Screenshots/LM4.png" width="400"> <img src="Screenshots/LM5.png" width="400"> <img src="Screenshots/LM6.png" width="400">
+# Light Mode
+<img src="Screenshots/Light Mode/light_mode_01.png" width="400"> <img src="Screenshots/Light Mode/light_mode_02.png" width="800"> <img src="Screenshots/Light Mode/light_mode_03.png" width="400"> <img src="Screenshots/Light Mode/light_mode_04.png" width="400"> <img src="Screenshots/Light Mode/light_mode_05.png" width="400"> <img src="Screenshots/Light Mode/light_mode_06.png" width="400">
 
-Dark Mode
--
-<img src="Screenshots/DM1.png" width="400"> <img src="Screenshots/DM2.png" width="800"> <img src="Screenshots/DM3.png" width="400"> <img src="Screenshots/DM4.png" width="400"> <img src="Screenshots/DM5.png" width="400"> <img src="Screenshots/DM6.png" width="400">
+# Dark Mode
+<img src="Screenshots/Dark Mode/dark_mode_01.png" width="400"> <img src="Screenshots/Dark Mode/dark_mode_02.png" width="800"> <img src="Screenshots/Dark Mode/dark_mode_03.png" width="400"> <img src="Screenshots/Dark Mode/dark_mode_04.png" width="400"> <img src="Screenshots/Dark Mode/dark_mode_05.png" width="400"> <img src="Screenshots/Dark Mode/dark_mode_06.png" width="400">
+
+# With Offline Support
+<img src="Screenshots/Offline Support/offline_support_01.png" width="400"> <img src="Screenshots/Offline Support/offline_support_02.png" width="400">
+
+# Some of the techs used
+- SwiftUI
+- Moya
+- Alamofire
+- Core Data
+- SwiftLint
+- SwiftGen
+- REST APIs
