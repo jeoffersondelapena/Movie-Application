@@ -10,7 +10,7 @@ import Foundation
 class SearchViewModel: ObservableObject {
     @Published var mediasDataState: DataState<[Media]> = DataState(
         data: [],
-        isLoading: true
+        isLoading: false
     )
 
     @Published var filterState = FilterState(
@@ -24,17 +24,7 @@ class SearchViewModel: ObservableObject {
         self.repository = repository
     }
 
-    func searchMedias(searchText: String) {
-        filterState.searchText = searchText
-        searchMedias()
-    }
-
-    func searchMedias(mediaType: FilterState.MediaType) {
-        filterState.mediaType = mediaType
-        searchMedias()
-    }
-
-    private func searchMedias() {
+    func searchMedias() {
         mediasDataState.isLoading = true
         repository.searchMedias(
             filterState: filterState
@@ -45,6 +35,9 @@ class SearchViewModel: ObservableObject {
                 mediasDataState.error = nil
                 mediasDataState.data = response
             case .failure(let error):
+                if NetworkStatusManager.shared.status == .disconnected {
+                    return
+                }
                 mediasDataState.data.removeAll()
                 mediasDataState.error = error
             }

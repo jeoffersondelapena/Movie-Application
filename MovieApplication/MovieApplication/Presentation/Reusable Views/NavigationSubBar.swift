@@ -22,8 +22,6 @@ private struct NavigationSubBar: View {
         HStack {
             Text(title)
                 .applyCustomFont(
-                    weight: .w700,
-                    size: 14,
                     color: Asset.ColorAssets.highEmphasisForeground.swiftUIColor
                 )
                 .alignText(
@@ -38,12 +36,11 @@ private struct NavigationSubBar: View {
                 Text(L10n.Label.offlineMode)
                     .applyCustomFont(
                         weight: .w700,
-                        size: 14,
                         color: Asset.ColorAssets.secondaryAccentColor.swiftUIColor
                     )
             }
         }
-        .padding(8)
+        .symmetricPadding(horizontal: 8, vertical: 4)
         .addHorizontalBorders(
             color: Asset.ColorAssets.disabledForeground.swiftUIColor
         )

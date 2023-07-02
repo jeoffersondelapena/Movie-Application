@@ -45,6 +45,8 @@
 		4072F0592A516C890069D896 /* MediaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072F0582A516C890069D896 /* MediaController.swift */; };
 		4072F05B2A51700E0069D896 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072F05A2A51700E0069D896 /* ErrorManager.swift */; };
 		4072F0602A5185B90069D896 /* CachePolicyCustomPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072F05F2A5185B90069D896 /* CachePolicyCustomPlugin.swift */; };
+		408FDEB62A519E4F0055B217 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408FDEB52A519E4F0055B217 /* SearchController.swift */; };
+		408FDEB82A519E930055B217 /* MediaToDBMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408FDEB72A519E930055B217 /* MediaToDBMedia.swift */; };
 		40B1E5442A503A2A005CCA3B /* DarkModeToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B1E5432A503A2A005CCA3B /* DarkModeToggleView.swift */; };
 		40B1E5472A504330005CCA3B /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B1E5462A504330005CCA3B /* SearchScreen.swift */; };
 		40B1E5492A504987005CCA3B /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B1E5482A504987005CCA3B /* UINavigationController+Extensions.swift */; };
@@ -119,6 +121,8 @@
 		4072F0582A516C890069D896 /* MediaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaController.swift; sourceTree = "<group>"; };
 		4072F05A2A51700E0069D896 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 		4072F05F2A5185B90069D896 /* CachePolicyCustomPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachePolicyCustomPlugin.swift; sourceTree = "<group>"; };
+		408FDEB52A519E4F0055B217 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		408FDEB72A519E930055B217 /* MediaToDBMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaToDBMedia.swift; sourceTree = "<group>"; };
 		40B1E5432A503A2A005CCA3B /* DarkModeToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeToggleView.swift; sourceTree = "<group>"; };
 		40B1E5462A504330005CCA3B /* SearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
 		40B1E5482A504987005CCA3B /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
@@ -400,6 +404,7 @@
 			children = (
 				4072F04E2A5164B70069D896 /* Base */,
 				4072F0542A5166BF0069D896 /* DBMedia+CoreDataClass.swift */,
+				408FDEB72A519E930055B217 /* MediaToDBMedia.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -409,6 +414,7 @@
 			children = (
 				4072F04F2A5164C90069D896 /* Base */,
 				4072F0582A516C890069D896 /* MediaController.swift */,
+				408FDEB52A519E4F0055B217 /* SearchController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -761,6 +767,7 @@
 				4033609E2A4ECEA50027D509 /* MediaItem.swift in Sources */,
 				4072F05B2A51700E0069D896 /* ErrorManager.swift in Sources */,
 				4072F0482A5135940069D896 /* NetworkStatusManager.swift in Sources */,
+				408FDEB82A519E930055B217 /* MediaToDBMedia.swift in Sources */,
 				40CB0A162A4E149F00C54126 /* BaseTargetType.swift in Sources */,
 				40B1E5492A504987005CCA3B /* UINavigationController+Extensions.swift in Sources */,
 				403360A22A4EE78F0027D509 /* Assets.swift in Sources */,
@@ -786,6 +793,7 @@
 				4072F0602A5185B90069D896 /* CachePolicyCustomPlugin.swift in Sources */,
 				4072F04D2A5152740069D896 /* DataController.swift in Sources */,
 				40EBF16A2A50D1E5004729C1 /* DataState.swift in Sources */,
+				408FDEB62A519E4F0055B217 /* SearchController.swift in Sources */,
 				40CB0A192A4E19F200C54126 /* MediaListScreen.swift in Sources */,
 				40CB0A1D2A4E25D000C54126 /* BaseResponse.swift in Sources */,
 				40EBF1702A50F082004729C1 /* TextDebounceManager.swift in Sources */,

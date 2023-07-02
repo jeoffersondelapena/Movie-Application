@@ -35,6 +35,9 @@ class MediaListViewModel: ObservableObject {
                 mediasDataState.data = response
                 callback(response)
             case .failure(let error):
+                if NetworkStatusManager.shared.status == .disconnected {
+                    return
+                }
                 mediasDataState.data.removeAll()
                 mediasDataState.error = error
             }
