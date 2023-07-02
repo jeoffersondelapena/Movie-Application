@@ -10,7 +10,7 @@ import Foundation
 class MediaListViewModel: ObservableObject {
     @Published var mediasDataState: DataState<[Media]> = DataState(
         data: [],
-        isLoading: true
+        isLoading: false
     )
 
     private let repository: MediaRepository
@@ -19,7 +19,10 @@ class MediaListViewModel: ObservableObject {
         self.repository = repository
     }
 
-    func getMedias(mediaType: MediaType) {
+    func getMedias(
+        mediaType: MediaType,
+        callback: @escaping ([Media]) -> Void
+    ) {
         mediasDataState.isLoading = true
         repository.getMedias(
             mediaType: mediaType,
@@ -30,6 +33,7 @@ class MediaListViewModel: ObservableObject {
             case .success(let response):
                 mediasDataState.error = nil
                 mediasDataState.data = response
+                callback(response)
             case .failure(let error):
                 mediasDataState.data.removeAll()
                 mediasDataState.error = error

@@ -24,6 +24,9 @@
 "action.search" = "Search";
 "action.darkMode" = "Dark Mode";
 
+// NavigationSubBar
+"label.offlineMode" = "Offline Mode";
+
 // RatingView
 "label.ratingString" = "%@ (%@ reviews)";
 

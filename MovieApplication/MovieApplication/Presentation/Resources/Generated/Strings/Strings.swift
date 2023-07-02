@@ -27,6 +27,8 @@ internal enum L10n {
     internal static let series = L10n.tr("Localizable", "action.series", fallback: "Series")
   }
   internal enum Label {
+    /// Offline Mode
+    internal static let offlineMode = L10n.tr("Localizable", "label.offlineMode", fallback: "Offline Mode")
     /// %@ (%@ reviews)
     internal static func ratingString(_ p1: Any, _ p2: Any) -> String {
       return L10n.tr("Localizable", "label.ratingString", String(describing: p1), String(describing: p2), fallback: "%@ (%@ reviews)")

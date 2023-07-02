@@ -26,15 +26,20 @@ private struct NavigationSubBar: View {
                     size: 14,
                     color: Asset.ColorAssets.highEmphasisForeground.swiftUIColor
                 )
+                .alignText(
+                    networkStatusManager.status == .disconnected
+                        ? .leading
+                        : .center
+                )
 
             if networkStatusManager.status == .disconnected {
                 Spacer()
 
-                Text("Offline Mode")
+                Text(L10n.Label.offlineMode)
                     .applyCustomFont(
                         weight: .w700,
                         size: 14,
-                        color: Asset.ColorAssets.highEmphasisForeground.swiftUIColor
+                        color: Asset.ColorAssets.secondaryAccentColor.swiftUIColor
                     )
             }
         }

@@ -12,18 +12,41 @@ extension DataController {
         context: NSManagedObjectContext,
         mediaType: MediaType
     ) -> [DBMedia] {
-        var dbProducts: [DBMedia] = []
+        var dbMedias: [DBMedia] = []
 
         do {
             let request = DBMedia.fetchRequest() as NSFetchRequest<DBMedia>
-            request.predicate = NSPredicate(format: "type == %@", NSNumber(value: mediaType.key))
-            dbProducts = try context.fetch(request)
+
+            var subPredicates = [
+                NSPredicate(
+                    format: "type == %@",
+                    NSNumber(value: mediaType.key)
+                )
+            ]
+
+            switch mediaType {
+            case .series(let withNewEpisodesThisMonth):
+                subPredicates.append(
+                    NSPredicate(
+                        format: "withNewEpisodesThisMonth == %@",
+                        NSNumber(value: withNewEpisodesThisMonth)
+                    )
+                )
+            default:
+                break
+            }
+
+            request.predicate = NSCompoundPredicate(
+                type: .and,
+                subpredicates: subPredicates
+            )
+
+            dbMedias = try context.fetch(request)
         } catch {
-            print("xyz3")
             ErrorManager.throwFatalError(error)
         }
 
-        return dbProducts
+        return dbMedias
     }
 
     func setDBMedias(

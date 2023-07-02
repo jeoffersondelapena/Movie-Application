@@ -27,6 +27,7 @@ struct MediaListView: View {
             VStack {
                 if mediasDataState.isLoading {
                     ProgressView()
+                        .padding()
                 }
 
                 List(mediasDataState.data) { media in

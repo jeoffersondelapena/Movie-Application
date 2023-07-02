@@ -19,7 +19,7 @@ public class DBMedia: NSManagedObject {
                     withNewEpisodesThisMonth: withNewEpisodesThisMonth
                 )
                 : .movie,
-            title: "[from cache] " + (title ?? ""),
+            title: title ?? "",
             posterURL: posterURL,
             backdropURL: backdropURL,
             description: desc ?? "",
