@@ -37,6 +37,7 @@ struct DataOverlayView: View {
 
             Text(message)
                 .applyCustomFont()
+                .alignText(.center)
         }
         .maxSize()
         .background(Color(.systemBackground))

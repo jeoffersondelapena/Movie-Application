@@ -14,19 +14,34 @@ extension View {
 }
 
 private struct SubNavigationBar: View {
+    @StateObject private var networkStatusManager = NetworkStatusManager()
+
     let title: String
 
     var body: some View {
-        Text(title)
-            .applyCustomFont(
-                weight: .w700,
-                size: 14,
-                color: Asset.ColorAssets.highEmphasisForeground.swiftUIColor
-            )
-            .padding(8)
-            .addHorizontalBorders(
-                color: Asset.ColorAssets.disabledForeground.swiftUIColor
-            )
+        HStack {
+            Text(title)
+                .applyCustomFont(
+                    weight: .w700,
+                    size: 14,
+                    color: Asset.ColorAssets.highEmphasisForeground.swiftUIColor
+                )
+
+            if networkStatusManager.status == .disconnected {
+                Spacer()
+
+                Text("No Internet")
+                    .applyCustomFont(
+                        weight: .w700,
+                        size: 14,
+                        color: Asset.ColorAssets.highEmphasisForeground.swiftUIColor
+                    )
+            }
+        }
+        .padding(8)
+        .addHorizontalBorders(
+            color: Asset.ColorAssets.disabledForeground.swiftUIColor
+        )
     }
 }
 

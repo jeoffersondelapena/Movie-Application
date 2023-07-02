@@ -28,8 +28,10 @@ class MediaListViewModel: ObservableObject {
             guard let self = self else { return }
             switch result {
             case .success(let response):
+                mediasDataState.error = nil
                 mediasDataState.data = response
             case .failure(let error):
+                mediasDataState.data.removeAll()
                 mediasDataState.error = error
             }
             mediasDataState.isLoading = false
