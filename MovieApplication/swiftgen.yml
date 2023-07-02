@@ -1,0 +1,17 @@
+strings:
+  inputs: MovieApplication/Presentation/Resources/Strings
+  outputs:
+    templateName: structured-swift5
+    output: MovieApplication/Presentation/Resources/Generated/Strings/Strings.swift
+
+fonts:
+  inputs: MovieApplication/Presentation/Resources/Fonts
+  outputs:
+    templateName: swift5
+    output: MovieApplication/Presentation/Resources/Generated/Fonts/Fonts.swift
+
+xcassets:
+  inputs: MovieApplication/Presentation/Resources/Assets
+  outputs:
+    templateName: swift5
+    output: MovieApplication/Presentation/Resources/Generated/Assets/Assets.swift

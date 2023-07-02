@@ -1,0 +1,52 @@
+/* 
+  Localizable.strings
+  MovieApplication
+
+  Created by Jeofferson Dela Peña on 6/29/23.
+  
+*/
+
+// Sample
+"sample.title" = "Lorem Ipsum";
+"sample.url" = "https://picsum.photos/200";
+
+// Common
+"title.movieApp" = "Movie App";
+
+"title.somethingWentWrong" = "Something Went Wrong";
+"message.tryAgainlater" = "Please try again later.";
+
+"action.movies" = "Movies";
+"action.series" = "Series";
+"action.episodes" = "Episodes";
+
+// NavigationBar
+"action.search" = "Search";
+"action.darkMode" = "Dark Mode";
+
+// NavigationSubBar
+"label.offlineMode" = "Offline Mode";
+
+// RatingView
+"label.ratingString" = "%@ (%@ reviews)";
+
+// MediaListScreen
+"title.movies2023" = "Movies 2023";
+"title.series2023" = "Series 2023";
+"title.withNewEpisodesThisMonth" = "With New Episodes This Month";
+
+// MediaDetailsScreen
+"title.movieDetails" = "Movie Details";
+"title.seriesDetails" = "Series Details";
+"title.showDetails" = "Show Details";
+
+// SearchScreen
+"title.search" = "Search";
+"placeholder.whatAreYouLookingFor" = "What are you looking for?";
+"accessibility.filterBy" = "Filter by?";
+
+"title.startSearching" = "Start Searching";
+"message.typeKeywords" = "Type some keywords.";
+
+"title.noResults" = "No Results";
+"message.tryOtherKeywords" = "Please try other keywords.";
