@@ -11,7 +11,7 @@ struct ReleaseDateView: View {
     let releaseDate: Date
 
     var body: some View {
-        HStack {
+        HStack(spacing: 8) {
             Image(systemName: "calendar")
                 .foregroundColor(
                     Asset.ColorAssets.secondaryAccentColor.swiftUIColor

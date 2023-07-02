@@ -15,7 +15,7 @@ extension View {
 
 private struct NavigationBar: View {
     var body: some View {
-        HStack {
+        HStack(spacing: 24) {
             Text(L10n.Title.movieApp)
                 .applyCustomFont(
                     weight: .w700,

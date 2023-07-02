@@ -14,7 +14,7 @@ struct MediaItem: View {
         NavigationLink(
             destination: MediaDetailsScreen(media: media)
         ) {
-            HStack {
+            HStack(spacing: 8) {
                 if let posterURL = media.posterURL {
                     CacheableImageView(
                         url: posterURL,
@@ -23,7 +23,7 @@ struct MediaItem: View {
                     )
                 }
 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 8) {
                     Text(media.title)
                         .applyCustomFont(
                             weight: .w700,

@@ -11,7 +11,7 @@ struct RatingView: View {
     let rating: Media.Rating
 
     var body: some View {
-        HStack {
+        HStack(spacing: 8) {
             Image(systemName: "star.fill")
                 .foregroundColor(
                     Asset.ColorAssets.secondaryAccentColor.swiftUIColor

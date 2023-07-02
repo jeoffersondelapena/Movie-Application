@@ -20,7 +20,7 @@ struct SearchScreen: View {
     )
 
     var body: some View {
-        VStack {
+        VStack(spacing: 8) {
             SearchBarView(onTextDebounce: searchMedias)
 
             MediaTypePickerView(onMediaTypeChange: searchMedias)

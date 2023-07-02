@@ -23,7 +23,7 @@ struct DataOverlayView: View {
     }
 
     var body: some View {
-        VStack {
+        VStack(spacing: 8) {
             Image(systemName: imageSystemName)
                 .iconSize(24)
                 .foregroundColor(Asset.ColorAssets.highEmphasisForeground.swiftUIColor)
