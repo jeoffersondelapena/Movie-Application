@@ -1,7 +1,7 @@
 # Movie App
-**Developer: Jeofferson Dela Peña**
-
 Millions of movies and TV shows to discover. Explore now.
+
+**Developer: Jeofferson Dela Peña**
 
 # Screenshots
 
