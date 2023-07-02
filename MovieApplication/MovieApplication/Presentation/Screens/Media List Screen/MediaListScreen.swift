@@ -11,7 +11,7 @@ import Moya
 struct MediaListScreen: View {
     @StateObject private var viewModel = MediaListViewModel(
         repository: MediaRepository(
-            mediaProvider: MoyaProvider<MediaService>()
+            provider: MoyaProvider<MediaService>()
         )
     )
 

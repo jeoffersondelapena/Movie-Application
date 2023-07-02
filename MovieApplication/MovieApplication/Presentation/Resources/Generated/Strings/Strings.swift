@@ -10,6 +10,10 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  internal enum Accessibility {
+    /// Filter by?
+    internal static let filterBy = L10n.tr("Localizable", "accessibility.filterBy", fallback: "Filter by?")
+  }
   internal enum Label {
     /// Dark Mode
     internal static let darkMode = L10n.tr("Localizable", "label.darkMode", fallback: "Dark Mode")

@@ -13,7 +13,7 @@ extension View {
     }
 }
 
-struct DynamicListStyleModifier: ViewModifier {
+private struct DynamicListStyleModifier: ViewModifier {
     let isGrouped: Bool
 
     func body(content: Content) -> some View {

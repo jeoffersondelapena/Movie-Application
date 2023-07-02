@@ -62,6 +62,12 @@
 		40EBF16C2A50E320004729C1 /* DataOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBF16B2A50E320004729C1 /* DataOverlayView.swift */; };
 		40EBF16E2A50E5F9004729C1 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBF16D2A50E5F9004729C1 /* SearchViewModel.swift */; };
 		40EBF1702A50F082004729C1 /* TextDebounceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBF16F2A50F082004729C1 /* TextDebounceManager.swift */; };
+		40EBF1722A50F208004729C1 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBF1712A50F208004729C1 /* SearchService.swift */; };
+		40EBF1742A50F2E4004729C1 /* SearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBF1732A50F2E4004729C1 /* SearchRepository.swift */; };
+		40EBF1762A50F858004729C1 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBF1752A50F858004729C1 /* UIApplication+Extensions.swift */; };
+		40EBF1782A50F99C004729C1 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBF1772A50F99C004729C1 /* SearchBarView.swift */; };
+		40EBF17A2A50FD26004729C1 /* FilterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBF1792A50FD26004729C1 /* FilterState.swift */; };
+		40EBF17C2A5100FD004729C1 /* MediaTypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBF17B2A5100FD004729C1 /* MediaTypePickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +129,12 @@
 		40EBF16B2A50E320004729C1 /* DataOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataOverlayView.swift; sourceTree = "<group>"; };
 		40EBF16D2A50E5F9004729C1 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		40EBF16F2A50F082004729C1 /* TextDebounceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDebounceManager.swift; sourceTree = "<group>"; };
+		40EBF1712A50F208004729C1 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		40EBF1732A50F2E4004729C1 /* SearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepository.swift; sourceTree = "<group>"; };
+		40EBF1752A50F858004729C1 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		40EBF1772A50F99C004729C1 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		40EBF1792A50FD26004729C1 /* FilterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterState.swift; sourceTree = "<group>"; };
+		40EBF17B2A5100FD004729C1 /* MediaTypePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTypePickerView.swift; sourceTree = "<group>"; };
 		8B8791589DE20EE2909BC48C /* Pods-MovieApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApplication.debug.xcconfig"; path = "Target Support Files/Pods-MovieApplication/Pods-MovieApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		8D96543D486BC92896219110 /* Pods-MovieApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApplication.release.xcconfig"; path = "Target Support Files/Pods-MovieApplication/Pods-MovieApplication.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -253,8 +265,9 @@
 			children = (
 				403360E82A4F92890027D509 /* BinaryEquatable.swift */,
 				40EBF16F2A50F082004729C1 /* TextDebounceManager.swift */,
-				40EBF1692A50D1E5004729C1 /* DataState.swift */,
 				40CB0A102A4E10F900C54126 /* DateTimeManager.swift */,
+				40EBF1692A50D1E5004729C1 /* DataState.swift */,
+				40EBF1792A50FD26004729C1 /* FilterState.swift */,
 				40545EFC2A4EB85600B74E15 /* Env.swift */,
 			);
 			path = Helpers;
@@ -267,6 +280,7 @@
 				40B1E5482A504987005CCA3B /* UINavigationController+Extensions.swift */,
 				403360C42A4F04EB0027D509 /* View+Extensions.swift */,
 				403360AB2A4EFCFC0027D509 /* Text+Extensions.swift */,
+				40EBF1752A50F858004729C1 /* UIApplication+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -349,6 +363,7 @@
 			children = (
 				40CB0A142A4E148D00C54126 /* Base */,
 				40CB0A122A4E12F200C54126 /* MediaService.swift */,
+				40EBF1712A50F208004729C1 /* SearchService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -382,6 +397,7 @@
 			children = (
 				40CB0A212A4E273B00C54126 /* Base */,
 				40CB0A1F2A4E266A00C54126 /* MediaRepository.swift */,
+				40EBF1732A50F2E4004729C1 /* SearchRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -410,6 +426,8 @@
 			children = (
 				40EBF16D2A50E5F9004729C1 /* SearchViewModel.swift */,
 				40B1E5462A504330005CCA3B /* SearchScreen.swift */,
+				40EBF1772A50F99C004729C1 /* SearchBarView.swift */,
+				40EBF17B2A5100FD004729C1 /* MediaTypePickerView.swift */,
 			);
 			path = "Search Screen";
 			sourceTree = "<group>";
@@ -691,7 +709,9 @@
 				403360A52A4EE91E0027D509 /* CacheableImageView.swift in Sources */,
 				403360AC2A4EFCFC0027D509 /* Text+Extensions.swift in Sources */,
 				40CB0A0D2A4E0F1000C54126 /* GetMovieResponse.swift in Sources */,
+				40EBF17A2A50FD26004729C1 /* FilterState.swift in Sources */,
 				403360CD2A4F23C60027D509 /* GetSeriesResponse.swift in Sources */,
+				40EBF1782A50F99C004729C1 /* SearchBarView.swift in Sources */,
 				403360C32A4F04680027D509 /* RatingView.swift in Sources */,
 				4033609E2A4ECEA50027D509 /* MediaItem.swift in Sources */,
 				40CB0A162A4E149F00C54126 /* BaseTargetType.swift in Sources */,
@@ -704,6 +724,7 @@
 				40BA28722A4DB99E0084103F /* MovieApplicationApp.swift in Sources */,
 				403360F02A4F9CD40027D509 /* NavigationBar.swift in Sources */,
 				403360C72A4F0A6D0027D509 /* Int+Extensions.swift in Sources */,
+				40EBF1762A50F858004729C1 /* UIApplication+Extensions.swift in Sources */,
 				403360D92A4F36200027D509 /* MediaType.swift in Sources */,
 				40CB0A132A4E12F200C54126 /* MediaService.swift in Sources */,
 				40EBF16C2A50E320004729C1 /* DataOverlayView.swift in Sources */,
@@ -721,8 +742,11 @@
 				40CB0A1B2A4E1AE100C54126 /* MediaListViewModel.swift in Sources */,
 				403360EC2A4F945D0027D509 /* DynamicListStyleModifier.swift in Sources */,
 				400A13D92A50B25500B28D47 /* ToolbarMenuView.swift in Sources */,
+				40EBF1742A50F2E4004729C1 /* SearchRepository.swift in Sources */,
+				40EBF1722A50F208004729C1 /* SearchService.swift in Sources */,
 				40545EFD2A4EB85600B74E15 /* Env.swift in Sources */,
 				40B1E54D2A50629B005CCA3B /* HorizontalDividerView.swift in Sources */,
+				40EBF17C2A5100FD004729C1 /* MediaTypePickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

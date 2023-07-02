@@ -9,10 +9,10 @@ import Foundation
 import Moya
 
 class MediaRepository: BaseRepository {
-    private let mediaProvider: MoyaProvider<MediaService>
+    private let provider: MoyaProvider<MediaService>
 
-    init(mediaProvider: MoyaProvider<MediaService>) {
-        self.mediaProvider = mediaProvider
+    init(provider: MoyaProvider<MediaService>) {
+        self.provider = provider
     }
 
     func getMedias(
@@ -36,7 +36,7 @@ class MediaRepository: BaseRepository {
         year: Int,
         callback: @escaping (Result<[Media], Error>) -> Void
     ) {
-        mediaProvider.request(.getMovies(year: year)) { [weak self] rawResult in
+        provider.request(.getMovies(year: year)) { [weak self] rawResult in
             guard let self = self else { return }
             let result: Result<[GetMovieResponse], Error> = handleRawResult(rawResult)
             switch result {
@@ -52,7 +52,7 @@ class MediaRepository: BaseRepository {
         year: Int,
         callback: @escaping (Result<[Media], Error>) -> Void
     ) {
-        mediaProvider.request(.getSeries(year: year)) { [weak self] rawResult in
+        provider.request(.getSeries(year: year)) { [weak self] rawResult in
             guard let self = self else { return }
             let result: Result<[GetSeriesResponse], Error> = handleRawResult(rawResult)
             switch result {
@@ -67,7 +67,7 @@ class MediaRepository: BaseRepository {
     private func getSeriesWithNewEpisodes(
         callback: @escaping (Result<[Media], Error>) -> Void
     ) {
-        mediaProvider.request(.getSeriesWithNewEpisodes) { [weak self] rawResult in
+        provider.request(.getSeriesWithNewEpisodes) { [weak self] rawResult in
             guard let self = self else { return }
             let result: Result<[GetSeriesResponse], Error> = handleRawResult(rawResult)
             switch result {
