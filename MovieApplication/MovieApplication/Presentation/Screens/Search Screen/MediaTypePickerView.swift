@@ -14,10 +14,10 @@ struct MediaTypePickerView: View {
 
     var body: some View {
         Picker(L10n.Accessibility.filterBy, selection: $mediaType) {
-            Text(L10n.Label.movies)
+            Text(L10n.Action.movies)
                 .tag(FilterState.MediaType.movies)
 
-            Text(L10n.Label.series)
+            Text(L10n.Action.series)
                 .tag(FilterState.MediaType.series)
         }
         .pickerStyle(.segmented)

@@ -12,7 +12,7 @@ struct ToolbarMenuView: View {
 
     private var darkModeToggleView: some View {
         Toggle(isOn: $isDarkMode) {
-            Label(L10n.Label.darkMode, systemImage: "moon")
+            Label(L10n.Action.darkMode, systemImage: "moon")
         }
     }
 
@@ -25,13 +25,14 @@ struct ToolbarMenuView: View {
     var body: some View {
         if !withSearchOption {
             darkModeToggleView
+
         } else {
             Menu(
                 content: {
                     darkModeToggleView
 
                     NavigationLink(destination: SearchScreen()) {
-                        Label(L10n.Label.search, systemImage: "magnifyingglass")
+                        Label(L10n.Action.search, systemImage: "magnifyingglass")
                     }
                 },
                 label: {

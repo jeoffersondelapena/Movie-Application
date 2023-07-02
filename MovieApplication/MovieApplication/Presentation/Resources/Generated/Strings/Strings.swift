@@ -14,21 +14,23 @@ internal enum L10n {
     /// Filter by?
     internal static let filterBy = L10n.tr("Localizable", "accessibility.filterBy", fallback: "Filter by?")
   }
-  internal enum Label {
+  internal enum Action {
     /// Dark Mode
-    internal static let darkMode = L10n.tr("Localizable", "label.darkMode", fallback: "Dark Mode")
+    internal static let darkMode = L10n.tr("Localizable", "action.darkMode", fallback: "Dark Mode")
     /// Episodes
-    internal static let episodes = L10n.tr("Localizable", "label.episodes", fallback: "Episodes")
+    internal static let episodes = L10n.tr("Localizable", "action.episodes", fallback: "Episodes")
     /// Movies
-    internal static let movies = L10n.tr("Localizable", "label.movies", fallback: "Movies")
+    internal static let movies = L10n.tr("Localizable", "action.movies", fallback: "Movies")
+    /// Search
+    internal static let search = L10n.tr("Localizable", "action.search", fallback: "Search")
+    /// Series
+    internal static let series = L10n.tr("Localizable", "action.series", fallback: "Series")
+  }
+  internal enum Label {
     /// %@ (%@ reviews)
     internal static func ratingString(_ p1: Any, _ p2: Any) -> String {
       return L10n.tr("Localizable", "label.ratingString", String(describing: p1), String(describing: p2), fallback: "%@ (%@ reviews)")
     }
-    /// Search
-    internal static let search = L10n.tr("Localizable", "label.search", fallback: "Search")
-    /// Series
-    internal static let series = L10n.tr("Localizable", "label.series", fallback: "Series")
   }
   internal enum Message {
     /// Please try again later.

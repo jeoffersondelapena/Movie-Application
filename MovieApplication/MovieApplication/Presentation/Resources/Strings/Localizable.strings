@@ -19,13 +19,13 @@
 "title.noResults" = "No Results";
 "message.tryOtherKeywords" = "Please try other keywords.";
 
-"label.movies" = "Movies";
-"label.series" = "Series";
-"label.episodes" = "Episodes";
+"action.movies" = "Movies";
+"action.series" = "Series";
+"action.episodes" = "Episodes";
 
 // NavigationBar
-"label.search" = "Search";
-"label.darkMode" = "Dark Mode";
+"action.search" = "Search";
+"action.darkMode" = "Dark Mode";
 
 // RatingView
 "label.ratingString" = "%@ (%@ reviews)";
