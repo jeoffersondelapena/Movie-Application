@@ -9,15 +9,16 @@ import SwiftUI
 import Moya
 
 struct MediaListScreen: View {
+    @EnvironmentObject private var networkStatusManager: NetworkStatusManager
+
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @FetchRequest(sortDescriptors: []) var dbObjects: FetchedResults<DBMedia>
+
     @StateObject private var viewModel = MediaListViewModel(
         repository: MediaRepository(
-            movieProvider: MoyaProvider<MovieService>(),
-            seriesProvider: MoyaProvider<SeriesService>()
+            provider: MoyaProvider<MediaService>(plugins: [CachePolicyCustomPlugin()])
         )
     )
-
-    @State private var isShowingErrorAlert = false
-    @State private var errorMessage: String?
 
     private var subNavigationBarTitle: String {
         switch mediaType {
@@ -32,49 +33,49 @@ struct MediaListScreen: View {
         }
     }
 
-    private var errorAlert: Alert {
-        Alert(
-            title: Text(L10n.Title.somethingWentWrong),
-            message: Text(errorMessage ?? L10n.Message.tryAgainlater),
-            dismissButton: .default(Text(L10n.Action.ok)) {
-                dismissErrorAlert()
-            }
-        )
-    }
-
     let mediaType: MediaType
 
     var body: some View {
-        MediaListView(medias: viewModel.medias)
-            .showSubNavigationBar(title: subNavigationBarTitle)
+        MediaListView(mediasDataState: viewModel.mediasDataState)
+            .showNavigationSubBar(title: subNavigationBarTitle)
             .showNavigationBar()
             .onAppear(perform: fetchContents)
-            .alert(isPresented: $isShowingErrorAlert) {
-                errorAlert
-            }
-            .onChange(of: viewModel.errorMessage, perform: onErrorMessageChange)
+            .onChange(
+                of: viewModel.mediasDataState.data,
+                perform: cacheContents
+            )
+            .onChange(
+                of: networkStatusManager.status,
+                perform: fetchContents
+            )
     }
 
     private func fetchContents() {
         viewModel.getMedias(mediaType: mediaType)
     }
 
-    private func onErrorMessageChange(errorMessage: String?) {
-        if let errorMessage = errorMessage {
-            showErrorAlert(errorMessage: errorMessage)
-        } else {
-            dismissErrorAlert()
+    private func fetchContents(networkStatus: NetworkStatus) {
+        viewModel.mediasDataState.error = nil
+        viewModel.mediasDataState.data = []
+        switch networkStatus {
+        case .connected:
+            viewModel.getMedias(mediaType: mediaType)
+        case .disconnected:
+            viewModel.mediasDataState.data = DataController.shared.getDBMedias(
+                context: managedObjectContext,
+                mediaType: mediaType
+            )
+            .toDomain()
         }
     }
 
-    private func showErrorAlert(errorMessage: String) {
-        isShowingErrorAlert = true
-        self.errorMessage = errorMessage
-    }
-
-    private func dismissErrorAlert() {
-        isShowingErrorAlert = false
-        self.errorMessage = nil
+    private func cacheContents(medias: [Media]) {
+        if !medias.isEmpty {
+            DataController.shared.setDBMedias(
+                context: managedObjectContext,
+                medias: medias
+            )
+        }
     }
 }
 

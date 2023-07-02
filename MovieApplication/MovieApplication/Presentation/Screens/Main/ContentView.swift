@@ -21,7 +21,7 @@ struct ContentView: View {
             }
             .tabItem {
                 Label(
-                    L10n.Label.movies,
+                    L10n.Action.movies,
                     systemImage: "film.fill"
                 )
             }
@@ -31,7 +31,7 @@ struct ContentView: View {
             }
             .tabItem {
                 Label(
-                    L10n.Label.series,
+                    L10n.Action.series,
                     systemImage: "tv.fill"
                 )
             }
@@ -41,7 +41,7 @@ struct ContentView: View {
             }
             .tabItem {
                 Label(
-                    L10n.Label.episodes,
+                    L10n.Action.episodes,
                     systemImage: "play.square.stack.fill"
                 )
             }

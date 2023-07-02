@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Media: Identifiable {
+struct Media: Identifiable, BinaryEquatable {
     struct Rating {
         let ratingAverage: Double
         let ratingCount: Int
@@ -45,3 +45,5 @@ struct Media: Identifiable {
         rating: Rating.sample
     )
 }
+
+extension Array<Media>: BinaryEquatable {}

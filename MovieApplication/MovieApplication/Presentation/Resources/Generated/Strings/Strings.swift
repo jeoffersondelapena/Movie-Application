@@ -10,29 +10,35 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  internal enum Accessibility {
+    /// Filter by?
+    internal static let filterBy = L10n.tr("Localizable", "accessibility.filterBy", fallback: "Filter by?")
+  }
   internal enum Action {
-    /// OK
-    internal static let ok = L10n.tr("Localizable", "action.ok", fallback: "OK")
+    /// Dark Mode
+    internal static let darkMode = L10n.tr("Localizable", "action.darkMode", fallback: "Dark Mode")
+    /// Episodes
+    internal static let episodes = L10n.tr("Localizable", "action.episodes", fallback: "Episodes")
+    /// Movies
+    internal static let movies = L10n.tr("Localizable", "action.movies", fallback: "Movies")
+    /// Search
+    internal static let search = L10n.tr("Localizable", "action.search", fallback: "Search")
+    /// Series
+    internal static let series = L10n.tr("Localizable", "action.series", fallback: "Series")
   }
   internal enum Label {
-    /// Dark Mode
-    internal static let darkMode = L10n.tr("Localizable", "label.darkMode", fallback: "Dark Mode")
-    /// Episodes
-    internal static let episodes = L10n.tr("Localizable", "label.episodes", fallback: "Episodes")
-    /// Movies
-    internal static let movies = L10n.tr("Localizable", "label.movies", fallback: "Movies")
     /// %@ (%@ reviews)
     internal static func ratingString(_ p1: Any, _ p2: Any) -> String {
       return L10n.tr("Localizable", "label.ratingString", String(describing: p1), String(describing: p2), fallback: "%@ (%@ reviews)")
     }
-    /// Search
-    internal static let search = L10n.tr("Localizable", "label.search", fallback: "Search")
-    /// Series
-    internal static let series = L10n.tr("Localizable", "label.series", fallback: "Series")
   }
   internal enum Message {
     /// Please try again later.
     internal static let tryAgainlater = L10n.tr("Localizable", "message.tryAgainlater", fallback: "Please try again later.")
+    /// Please try other keywords.
+    internal static let tryOtherKeywords = L10n.tr("Localizable", "message.tryOtherKeywords", fallback: "Please try other keywords.")
+    /// Type some keywords.
+    internal static let typeKeywords = L10n.tr("Localizable", "message.typeKeywords", fallback: "Type some keywords.")
   }
   internal enum Placeholder {
     /// What are you looking for?
@@ -54,6 +60,8 @@ internal enum L10n {
     internal static let movieDetails = L10n.tr("Localizable", "title.movieDetails", fallback: "Movie Details")
     /// Movies 2023
     internal static let movies2023 = L10n.tr("Localizable", "title.movies2023", fallback: "Movies 2023")
+    /// No Results
+    internal static let noResults = L10n.tr("Localizable", "title.noResults", fallback: "No Results")
     /// Search
     internal static let search = L10n.tr("Localizable", "title.search", fallback: "Search")
     /// Series 2023
@@ -62,8 +70,10 @@ internal enum L10n {
     internal static let seriesDetails = L10n.tr("Localizable", "title.seriesDetails", fallback: "Series Details")
     /// Show Details
     internal static let showDetails = L10n.tr("Localizable", "title.showDetails", fallback: "Show Details")
-    /// Something went wrong
-    internal static let somethingWentWrong = L10n.tr("Localizable", "title.somethingWentWrong", fallback: "Something went wrong")
+    /// Something Went Wrong
+    internal static let somethingWentWrong = L10n.tr("Localizable", "title.somethingWentWrong", fallback: "Something Went Wrong")
+    /// Start Searching
+    internal static let startSearching = L10n.tr("Localizable", "title.startSearching", fallback: "Start Searching")
     /// With New Episodes This Month
     internal static let withNewEpisodesThisMonth = L10n.tr("Localizable", "title.withNewEpisodesThisMonth", fallback: "With New Episodes This Month")
   }

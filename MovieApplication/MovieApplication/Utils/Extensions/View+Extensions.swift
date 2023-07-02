@@ -85,6 +85,10 @@ extension View {
         return AnyView(view)
     }
 
+    func maxSize() -> some View {
+        self.frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
+
     func iconSize(_ value: CGFloat) -> some View {
         self.font(.system(size: value))
     }

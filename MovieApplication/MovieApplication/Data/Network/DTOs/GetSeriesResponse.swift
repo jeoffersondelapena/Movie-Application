@@ -51,7 +51,7 @@ struct GetSeriesResponse: Codable {
 
 extension Array<GetSeriesResponse> {
     func toDomain(withNewEpisodesThisMonth: Bool) -> [Media] {
-        self.map { getSeriesResponse in
+        map { getSeriesResponse in
             getSeriesResponse.toDomain(withNewEpisodesThisMonth: withNewEpisodesThisMonth)
         }
     }

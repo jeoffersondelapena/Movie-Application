@@ -11,3 +11,14 @@ enum MediaType: BinaryEquatable {
     case movie
     case series(withNewEpisodesThisMonth: Bool = false)
 }
+
+extension MediaType {
+    var key: Int {
+        switch self {
+        case .movie:
+            return 0
+        case .series:
+            return 1
+        }
+    }
+}

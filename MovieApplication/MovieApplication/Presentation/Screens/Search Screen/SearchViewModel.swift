@@ -1,29 +1,43 @@
 //
-//  MediaListViewModel.swift
+//  SearchViewModel.swift
 //  MovieApplication
 //
-//  Created by Jeofferson Dela Peña on 6/30/23.
+//  Created by Jeofferson Dela Peña on 7/2/23.
 //
 
 import Foundation
 
-class MediaListViewModel: ObservableObject {
+class SearchViewModel: ObservableObject {
     @Published var mediasDataState: DataState<[Media]> = DataState(
         data: [],
         isLoading: true
     )
 
-    private let repository: MediaRepository
+    @Published var filterState = FilterState(
+        searchText: "",
+        mediaType: .movies
+    )
 
-    init(repository: MediaRepository) {
+    private let repository: SearchRepository
+
+    init(repository: SearchRepository) {
         self.repository = repository
     }
 
-    func getMedias(mediaType: MediaType) {
+    func searchMedias(searchText: String) {
+        filterState.searchText = searchText
+        searchMedias()
+    }
+
+    func searchMedias(mediaType: FilterState.MediaType) {
+        filterState.mediaType = mediaType
+        searchMedias()
+    }
+
+    private func searchMedias() {
         mediasDataState.isLoading = true
-        repository.getMedias(
-            mediaType: mediaType,
-            year: 2023
+        repository.searchMedias(
+            filterState: filterState
         ) { [weak self] result in
             guard let self = self else { return }
             switch result {

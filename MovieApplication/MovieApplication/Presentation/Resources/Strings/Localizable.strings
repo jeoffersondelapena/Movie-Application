@@ -12,21 +12,20 @@
 
 // Common
 "title.movieApp" = "Movie App";
-"action.ok" = "OK";
-"title.somethingWentWrong" = "Something went wrong";
+
+"title.somethingWentWrong" = "Something Went Wrong";
 "message.tryAgainlater" = "Please try again later.";
 
+"action.movies" = "Movies";
+"action.series" = "Series";
+"action.episodes" = "Episodes";
+
 // NavigationBar
-"label.search" = "Search";
-"label.darkMode" = "Dark Mode";
+"action.search" = "Search";
+"action.darkMode" = "Dark Mode";
 
 // RatingView
 "label.ratingString" = "%@ (%@ reviews)";
-
-// TabView
-"label.movies" = "Movies";
-"label.series" = "Series";
-"label.episodes" = "Episodes";
 
 // MediaListScreen
 "title.movies2023" = "Movies 2023";
@@ -41,3 +40,10 @@
 // SearchScreen
 "title.search" = "Search";
 "placeholder.whatAreYouLookingFor" = "What are you looking for?";
+"accessibility.filterBy" = "Filter by?";
+
+"title.startSearching" = "Start Searching";
+"message.typeKeywords" = "Type some keywords.";
+
+"title.noResults" = "No Results";
+"message.tryOtherKeywords" = "Please try other keywords.";
