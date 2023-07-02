@@ -23,6 +23,7 @@ struct SearchScreen: View {
 
             MediaListView(
                 mediasDataState: viewModel.mediasDataState,
+                filterState: viewModel.filterState,
                 isGrouped: false
             )
         }

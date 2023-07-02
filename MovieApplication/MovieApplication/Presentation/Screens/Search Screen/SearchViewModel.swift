@@ -10,10 +10,10 @@ import Foundation
 class SearchViewModel: ObservableObject {
     @Published var mediasDataState: DataState<[Media]> = DataState(
         data: [],
-        overlay: nil
+        isLoading: true
     )
 
-    private var filterState = FilterState(
+    @Published var filterState = FilterState(
         searchText: "",
         mediaType: .movies
     )
@@ -35,18 +35,18 @@ class SearchViewModel: ObservableObject {
     }
 
     private func searchMedias() {
-        mediasDataState.overlay = .progress
+        mediasDataState.isLoading = true
         repository.searchMedias(
             filterState: filterState
         ) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let response):
-                mediasDataState.overlay = nil
                 mediasDataState.data = response
             case .failure(let error):
-                mediasDataState.overlay = .failure(error: error)
+                mediasDataState.error = error
             }
+            mediasDataState.isLoading = false
         }
     }
 }

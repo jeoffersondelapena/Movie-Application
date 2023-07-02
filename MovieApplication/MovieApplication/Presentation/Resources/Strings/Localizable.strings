@@ -16,9 +16,6 @@
 "title.somethingWentWrong" = "Something Went Wrong";
 "message.tryAgainlater" = "Please try again later.";
 
-"title.noResults" = "No Results";
-"message.tryOtherKeywords" = "Please try other keywords.";
-
 "action.movies" = "Movies";
 "action.series" = "Series";
 "action.episodes" = "Episodes";
@@ -44,3 +41,9 @@
 "title.search" = "Search";
 "placeholder.whatAreYouLookingFor" = "What are you looking for?";
 "accessibility.filterBy" = "Filter by?";
+
+"title.startSearching" = "Start Searching";
+"message.typeKeywords" = "Type some keywords.";
+
+"title.noResults" = "No Results";
+"message.tryOtherKeywords" = "Please try other keywords.";

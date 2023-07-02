@@ -8,11 +8,7 @@
 import Foundation
 
 struct DataState<T> {
-    enum Overlay {
-        case failure(error: Error)
-        case progress
-    }
-
     var data: T
-    var overlay: Overlay?
+    var error: Error?
+    var isLoading: Bool
 }

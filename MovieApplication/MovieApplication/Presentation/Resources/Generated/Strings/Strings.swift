@@ -37,6 +37,8 @@ internal enum L10n {
     internal static let tryAgainlater = L10n.tr("Localizable", "message.tryAgainlater", fallback: "Please try again later.")
     /// Please try other keywords.
     internal static let tryOtherKeywords = L10n.tr("Localizable", "message.tryOtherKeywords", fallback: "Please try other keywords.")
+    /// Type some keywords.
+    internal static let typeKeywords = L10n.tr("Localizable", "message.typeKeywords", fallback: "Type some keywords.")
   }
   internal enum Placeholder {
     /// What are you looking for?
@@ -70,6 +72,8 @@ internal enum L10n {
     internal static let showDetails = L10n.tr("Localizable", "title.showDetails", fallback: "Show Details")
     /// Something Went Wrong
     internal static let somethingWentWrong = L10n.tr("Localizable", "title.somethingWentWrong", fallback: "Something Went Wrong")
+    /// Start Searching
+    internal static let startSearching = L10n.tr("Localizable", "title.startSearching", fallback: "Start Searching")
     /// With New Episodes This Month
     internal static let withNewEpisodesThisMonth = L10n.tr("Localizable", "title.withNewEpisodesThisMonth", fallback: "With New Episodes This Month")
   }
