@@ -18,7 +18,6 @@ class DataController: ObservableObject {
             self.container.viewContext.mergePolicy = NSMergePolicy(
                 merge: NSMergePolicyType.mergeByPropertyObjectTrumpMergePolicyType
             )
-            print("xyz1")
             ErrorManager.throwFatalError(error)
         }
     }
@@ -28,7 +27,6 @@ class DataController: ObservableObject {
             do {
                 try context.save()
             } catch {
-                print("xyz2")
                 ErrorManager.throwFatalError(error)
             }
         }

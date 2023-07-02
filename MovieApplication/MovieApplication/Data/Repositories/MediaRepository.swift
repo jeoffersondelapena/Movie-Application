@@ -25,7 +25,7 @@ class MediaRepository: BaseRepository {
             getMovies(year: year, callback: callback)
         case .series(let withNewEpisodesThisMonth):
             if withNewEpisodesThisMonth {
-                getSeriesWithNewEpisodes(callback: callback)
+                getSeriesWithNewEpisodesThisMonth(callback: callback)
             } else {
                 getSeries(year: year, callback: callback)
             }
@@ -64,7 +64,7 @@ class MediaRepository: BaseRepository {
         }
     }
 
-    private func getSeriesWithNewEpisodes(
+    private func getSeriesWithNewEpisodesThisMonth(
         callback: @escaping (Result<[Media], Error>) -> Void
     ) {
         provider.request(.getSeriesWithNewEpisodes) { [weak self] rawResult in

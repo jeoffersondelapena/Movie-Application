@@ -14,10 +14,12 @@ enum NetworkStatus: String {
 }
 
 class NetworkStatusManager: ObservableObject {
-    private let monitor = NWPathMonitor()
-    private let queue = DispatchQueue(label: "Monitor")
+    static let shared = NetworkStatusManager()
 
     @Published var status: NetworkStatus = .connected
+
+    private let monitor = NWPathMonitor()
+    private let queue = DispatchQueue(label: "Monitor")
 
     init() {
         monitor.pathUpdateHandler = { [weak self] path in

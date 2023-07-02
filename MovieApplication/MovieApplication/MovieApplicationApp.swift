@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct MovieApplicationApp: App {
-    @StateObject private var networkStatusManager = NetworkStatusManager()
+    @StateObject private var networkStatusManager = NetworkStatusManager.shared
     @AppStorage("isDarkMode") private var isDarkMode = true
 
     @StateObject private var dataController = DataController.shared

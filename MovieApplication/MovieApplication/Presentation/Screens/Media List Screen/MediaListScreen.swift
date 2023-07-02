@@ -12,7 +12,6 @@ struct MediaListScreen: View {
     @EnvironmentObject private var networkStatusManager: NetworkStatusManager
 
     @Environment(\.managedObjectContext) var managedObjectContext
-    @FetchRequest(sortDescriptors: []) var dbObjects: FetchedResults<DBMedia>
 
     @StateObject private var viewModel = MediaListViewModel(
         repository: MediaRepository(
@@ -40,33 +39,34 @@ struct MediaListScreen: View {
             .showNavigationSubBar(title: subNavigationBarTitle)
             .showNavigationBar()
             .onAppear(perform: fetchContents)
-            .onChange(
-                of: viewModel.mediasDataState.data,
-                perform: cacheContents
-            )
-            .onChange(
-                of: networkStatusManager.status,
-                perform: fetchContents
-            )
+            .onChange(of: networkStatusManager.status) { _ in
+                onNetworkStatusChange()
+            }
     }
 
     private func fetchContents() {
-        viewModel.getMedias(mediaType: mediaType)
+        switch networkStatusManager.status {
+        case .connected:
+            fetchContentsFromNetwork()
+        case .disconnected:
+            fetchContentsFromCache()
+        }
     }
 
-    private func fetchContents(networkStatus: NetworkStatus) {
+    private func fetchContentsFromNetwork() {
+        viewModel.getMedias(
+            mediaType: mediaType,
+            callback: cacheContents
+        )
+    }
+
+    private func fetchContentsFromCache() {
         viewModel.mediasDataState.error = nil
-        viewModel.mediasDataState.data = []
-        switch networkStatus {
-        case .connected:
-            viewModel.getMedias(mediaType: mediaType)
-        case .disconnected:
-            viewModel.mediasDataState.data = DataController.shared.getDBMedias(
-                context: managedObjectContext,
-                mediaType: mediaType
-            )
-            .toDomain()
-        }
+        viewModel.mediasDataState.data = DataController.shared.getDBMedias(
+            context: managedObjectContext,
+            mediaType: mediaType
+        )
+        .toDomain()
     }
 
     private func cacheContents(medias: [Media]) {
@@ -76,6 +76,14 @@ struct MediaListScreen: View {
                 medias: medias
             )
         }
+    }
+
+    private func onNetworkStatusChange() {
+        viewModel.mediasDataState = DataState(
+            data: [],
+            isLoading: false
+        )
+        fetchContents()
     }
 }
 
