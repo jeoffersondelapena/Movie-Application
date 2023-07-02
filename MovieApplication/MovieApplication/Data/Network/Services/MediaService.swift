@@ -41,3 +41,9 @@ extension MediaService: BaseTargetType, TargetType {
         }
     }
 }
+
+extension MediaService: CachePolicyGettable {
+    var cachePolicy: URLRequest.CachePolicy {
+        .reloadIgnoringLocalCacheData
+    }
+}

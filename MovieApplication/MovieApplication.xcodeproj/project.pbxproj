@@ -33,12 +33,18 @@
 		403360E52A4F7C8A0027D509 /* ReleaseDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403360E42A4F7C8A0027D509 /* ReleaseDateView.swift */; };
 		403360E92A4F92890027D509 /* BinaryEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403360E82A4F92890027D509 /* BinaryEquatable.swift */; };
 		403360EC2A4F945D0027D509 /* DynamicListStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403360EB2A4F945D0027D509 /* DynamicListStyleModifier.swift */; };
-		403360EE2A4F9AE60027D509 /* SubNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403360ED2A4F9AE60027D509 /* SubNavigationBar.swift */; };
+		403360EE2A4F9AE60027D509 /* NavigationSubBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403360ED2A4F9AE60027D509 /* NavigationSubBar.swift */; };
 		403360F02A4F9CD40027D509 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403360EF2A4F9CD40027D509 /* NavigationBar.swift */; };
 		40545EFD2A4EB85600B74E15 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40545EFC2A4EB85600B74E15 /* Env.swift */; };
 		40545F022A4EC0D200B74E15 /* .env.dev in Resources */ = {isa = PBXBuildFile; fileRef = 40545F012A4EC0D200B74E15 /* .env.dev */; };
 		407159D32A4E06E900695F27 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407159D22A4E06E900695F27 /* Media.swift */; };
 		4072F0482A5135940069D896 /* NetworkStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072F0472A5135940069D896 /* NetworkStatusManager.swift */; };
+		4072F04B2A514E5A0069D896 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4072F0492A514E5A0069D896 /* Main.xcdatamodeld */; };
+		4072F04D2A5152740069D896 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072F04C2A5152740069D896 /* DataController.swift */; };
+		4072F0562A5166BF0069D896 /* DBMedia+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072F0542A5166BF0069D896 /* DBMedia+CoreDataClass.swift */; };
+		4072F0592A516C890069D896 /* MediaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072F0582A516C890069D896 /* MediaController.swift */; };
+		4072F05B2A51700E0069D896 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072F05A2A51700E0069D896 /* ErrorManager.swift */; };
+		4072F0602A5185B90069D896 /* CachePolicyCustomPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072F05F2A5185B90069D896 /* CachePolicyCustomPlugin.swift */; };
 		40B1E5442A503A2A005CCA3B /* DarkModeToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B1E5432A503A2A005CCA3B /* DarkModeToggleView.swift */; };
 		40B1E5472A504330005CCA3B /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B1E5462A504330005CCA3B /* SearchScreen.swift */; };
 		40B1E5492A504987005CCA3B /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B1E5482A504987005CCA3B /* UINavigationController+Extensions.swift */; };
@@ -99,7 +105,7 @@
 		403360E42A4F7C8A0027D509 /* ReleaseDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseDateView.swift; sourceTree = "<group>"; };
 		403360E82A4F92890027D509 /* BinaryEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryEquatable.swift; sourceTree = "<group>"; };
 		403360EB2A4F945D0027D509 /* DynamicListStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicListStyleModifier.swift; sourceTree = "<group>"; };
-		403360ED2A4F9AE60027D509 /* SubNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubNavigationBar.swift; sourceTree = "<group>"; };
+		403360ED2A4F9AE60027D509 /* NavigationSubBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSubBar.swift; sourceTree = "<group>"; };
 		403360EF2A4F9CD40027D509 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		40545EF92A4E4C6600B74E15 /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		40545EFB2A4EB75F00B74E15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -107,6 +113,12 @@
 		40545F012A4EC0D200B74E15 /* .env.dev */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .env.dev; sourceTree = "<group>"; };
 		407159D22A4E06E900695F27 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		4072F0472A5135940069D896 /* NetworkStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusManager.swift; sourceTree = "<group>"; };
+		4072F04A2A514E5A0069D896 /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
+		4072F04C2A5152740069D896 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		4072F0542A5166BF0069D896 /* DBMedia+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBMedia+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4072F0582A516C890069D896 /* MediaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaController.swift; sourceTree = "<group>"; };
+		4072F05A2A51700E0069D896 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
+		4072F05F2A5185B90069D896 /* CachePolicyCustomPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachePolicyCustomPlugin.swift; sourceTree = "<group>"; };
 		40B1E5432A503A2A005CCA3B /* DarkModeToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeToggleView.swift; sourceTree = "<group>"; };
 		40B1E5462A504330005CCA3B /* SearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
 		40B1E5482A504987005CCA3B /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
@@ -243,7 +255,7 @@
 			children = (
 				40B1E5422A5039EE005CCA3B /* Navigation Bar */,
 				403360A82A4EEDE90027D509 /* Cacheable Image View */,
-				403360ED2A4F9AE60027D509 /* SubNavigationBar.swift */,
+				403360ED2A4F9AE60027D509 /* NavigationSubBar.swift */,
 				40B1E54C2A50629B005CCA3B /* HorizontalDividerView.swift */,
 				40EBF16B2A50E320004729C1 /* DataOverlayView.swift */,
 				403360E42A4F7C8A0027D509 /* ReleaseDateView.swift */,
@@ -272,6 +284,7 @@
 				40EBF1792A50FD26004729C1 /* FilterState.swift */,
 				40545EFC2A4EB85600B74E15 /* Env.swift */,
 				4072F0472A5135940069D896 /* NetworkStatusManager.swift */,
+				4072F05A2A51700E0069D896 /* ErrorManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -356,7 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				407159CB2A4E03C800695F27 /* DTOs */,
-				407159CC2A4E040300695F27 /* Persistences */,
+				407159CC2A4E040300695F27 /* Controllers */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -365,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				40CB0A142A4E148D00C54126 /* Base */,
+				4072F05C2A5184B40069D896 /* Cache Policy Custom Plugin */,
 				40CB0A122A4E12F200C54126 /* MediaService.swift */,
 				40EBF1712A50F208004729C1 /* SearchService.swift */,
 			);
@@ -384,15 +398,19 @@
 		407159CB2A4E03C800695F27 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
+				4072F04E2A5164B70069D896 /* Base */,
+				4072F0542A5166BF0069D896 /* DBMedia+CoreDataClass.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
 		};
-		407159CC2A4E040300695F27 /* Persistences */ = {
+		407159CC2A4E040300695F27 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4072F04F2A5164C90069D896 /* Base */,
+				4072F0582A516C890069D896 /* MediaController.swift */,
 			);
-			path = Persistences;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		407159CD2A4E04C000695F27 /* Repositories */ = {
@@ -422,6 +440,30 @@
 				40BA28732A4DB99E0084103F /* ContentView.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		4072F04E2A5164B70069D896 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4072F0492A514E5A0069D896 /* Main.xcdatamodeld */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		4072F04F2A5164C90069D896 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4072F04C2A5152740069D896 /* DataController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		4072F05C2A5184B40069D896 /* Cache Policy Custom Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				4072F05F2A5185B90069D896 /* CachePolicyCustomPlugin.swift */,
+			);
+			path = "Cache Policy Custom Plugin";
 			sourceTree = "<group>";
 		};
 		4084C39F2A508C8D0086F0ED /* Search Screen */ = {
@@ -717,6 +759,7 @@
 				40EBF1782A50F99C004729C1 /* SearchBarView.swift in Sources */,
 				403360C32A4F04680027D509 /* RatingView.swift in Sources */,
 				4033609E2A4ECEA50027D509 /* MediaItem.swift in Sources */,
+				4072F05B2A51700E0069D896 /* ErrorManager.swift in Sources */,
 				4072F0482A5135940069D896 /* NetworkStatusManager.swift in Sources */,
 				40CB0A162A4E149F00C54126 /* BaseTargetType.swift in Sources */,
 				40B1E5492A504987005CCA3B /* UINavigationController+Extensions.swift in Sources */,
@@ -731,13 +774,17 @@
 				40EBF1762A50F858004729C1 /* UIApplication+Extensions.swift in Sources */,
 				403360D92A4F36200027D509 /* MediaType.swift in Sources */,
 				40CB0A132A4E12F200C54126 /* MediaService.swift in Sources */,
+				4072F0562A5166BF0069D896 /* DBMedia+CoreDataClass.swift in Sources */,
 				40EBF16C2A50E320004729C1 /* DataOverlayView.swift in Sources */,
 				403360CB2A4F0D660027D509 /* MediaDetailsScreen.swift in Sources */,
 				40EBF16E2A50E5F9004729C1 /* SearchViewModel.swift in Sources */,
 				40B2A3892A507957001BD9CC /* MediaListView.swift in Sources */,
 				40B1E5472A504330005CCA3B /* SearchScreen.swift in Sources */,
 				40CB0A202A4E266A00C54126 /* MediaRepository.swift in Sources */,
-				403360EE2A4F9AE60027D509 /* SubNavigationBar.swift in Sources */,
+				403360EE2A4F9AE60027D509 /* NavigationSubBar.swift in Sources */,
+				4072F0592A516C890069D896 /* MediaController.swift in Sources */,
+				4072F0602A5185B90069D896 /* CachePolicyCustomPlugin.swift in Sources */,
+				4072F04D2A5152740069D896 /* DataController.swift in Sources */,
 				40EBF16A2A50D1E5004729C1 /* DataState.swift in Sources */,
 				40CB0A192A4E19F200C54126 /* MediaListScreen.swift in Sources */,
 				40CB0A1D2A4E25D000C54126 /* BaseResponse.swift in Sources */,
@@ -749,6 +796,7 @@
 				40EBF1742A50F2E4004729C1 /* SearchRepository.swift in Sources */,
 				40EBF1722A50F208004729C1 /* SearchService.swift in Sources */,
 				40545EFD2A4EB85600B74E15 /* Env.swift in Sources */,
+				4072F04B2A514E5A0069D896 /* Main.xcdatamodeld in Sources */,
 				40B1E54D2A50629B005CCA3B /* HorizontalDividerView.swift in Sources */,
 				40EBF17C2A5100FD004729C1 /* MediaTypePickerView.swift in Sources */,
 			);
@@ -963,6 +1011,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4072F0492A514E5A0069D896 /* Main.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4072F04A2A514E5A0069D896 /* Main.xcdatamodel */,
+			);
+			currentVersion = 4072F04A2A514E5A0069D896 /* Main.xcdatamodel */;
+			path = Main.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 40BA28662A4DB99E0084103F /* Project object */;
 }

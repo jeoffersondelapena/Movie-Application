@@ -29,10 +29,8 @@ struct MediaListView: View {
                     ProgressView()
                 }
 
-                List {
-                    ForEach(mediasDataState.data) { media in
-                        MediaItem(media: media)
-                    }
+                List(mediasDataState.data) { media in
+                    MediaItem(media: media)
                 }
                 .dynamicListStyle(isGrouped: isGrouped)
             }

@@ -1,5 +1,5 @@
 //
-//  SubNavigationBar.swift
+//  NavigationSubBar.swift
 //  MovieApplication
 //
 //  Created by Jeofferson Dela Peña on 7/1/23.
@@ -8,13 +8,13 @@
 import SwiftUI
 
 extension View {
-    func showSubNavigationBar(title: String) -> some View {
-        showAtTheTop(view: SubNavigationBar(title: title))
+    func showNavigationSubBar(title: String) -> some View {
+        showAtTheTop(view: NavigationSubBar(title: title))
     }
 }
 
-private struct SubNavigationBar: View {
-    @StateObject private var networkStatusManager = NetworkStatusManager()
+private struct NavigationSubBar: View {
+    @EnvironmentObject private var networkStatusManager: NetworkStatusManager
 
     let title: String
 
@@ -30,7 +30,7 @@ private struct SubNavigationBar: View {
             if networkStatusManager.status == .disconnected {
                 Spacer()
 
-                Text("No Internet")
+                Text("Offline Mode")
                     .applyCustomFont(
                         weight: .w700,
                         size: 14,
@@ -45,8 +45,8 @@ private struct SubNavigationBar: View {
     }
 }
 
-struct SubNavigationBar_Previews: PreviewProvider {
+struct NavigationSubBar_Previews: PreviewProvider {
     static var previews: some View {
-        SubNavigationBar(title: L10n.Sample.title)
+        NavigationSubBar(title: L10n.Sample.title)
     }
 }

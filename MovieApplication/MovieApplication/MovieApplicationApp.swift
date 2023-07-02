@@ -9,12 +9,20 @@ import SwiftUI
 
 @main
 struct MovieApplicationApp: App {
+    @StateObject private var networkStatusManager = NetworkStatusManager()
     @AppStorage("isDarkMode") private var isDarkMode = true
+
+    @StateObject private var dataController = DataController.shared
 
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(
+                    \.managedObjectContext,
+                     dataController.container.viewContext
+                )
                 .preferredColorScheme(isDarkMode ? .dark : .light)
+                .environmentObject(networkStatusManager)
         }
     }
 }

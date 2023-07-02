@@ -52,7 +52,7 @@ struct GetMovieResponse: Codable {
 
 extension Array<GetMovieResponse> {
     func toDomain() -> [Media] {
-        self.map { getMovieResponse in
+        map { getMovieResponse in
             getMovieResponse.toDomain()
         }
     }
