@@ -37,6 +37,7 @@
 		403360F02A4F9CD40027D509 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403360EF2A4F9CD40027D509 /* NavigationBar.swift */; };
 		40545EFD2A4EB85600B74E15 /* Env.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40545EFC2A4EB85600B74E15 /* Env.swift */; };
 		40545F022A4EC0D200B74E15 /* .env.dev in Resources */ = {isa = PBXBuildFile; fileRef = 40545F012A4EC0D200B74E15 /* .env.dev */; };
+		405DC1FA2A52E16800B9F271 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405DC1F92A52E16800B9F271 /* String+Extensions.swift */; };
 		407159D32A4E06E900695F27 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407159D22A4E06E900695F27 /* Media.swift */; };
 		4072F0482A5135940069D896 /* NetworkStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072F0472A5135940069D896 /* NetworkStatusManager.swift */; };
 		4072F04B2A514E5A0069D896 /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4072F0492A514E5A0069D896 /* Main.xcdatamodeld */; };
@@ -46,7 +47,6 @@
 		4072F05B2A51700E0069D896 /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072F05A2A51700E0069D896 /* ErrorManager.swift */; };
 		4072F0602A5185B90069D896 /* CachePolicyCustomPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4072F05F2A5185B90069D896 /* CachePolicyCustomPlugin.swift */; };
 		408FDEB62A519E4F0055B217 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408FDEB52A519E4F0055B217 /* SearchController.swift */; };
-		408FDEB82A519E930055B217 /* MediaToDBMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408FDEB72A519E930055B217 /* MediaToDBMedia.swift */; };
 		40B1E5442A503A2A005CCA3B /* DarkModeToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B1E5432A503A2A005CCA3B /* DarkModeToggleView.swift */; };
 		40B1E5472A504330005CCA3B /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B1E5462A504330005CCA3B /* SearchScreen.swift */; };
 		40B1E5492A504987005CCA3B /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B1E5482A504987005CCA3B /* UINavigationController+Extensions.swift */; };
@@ -72,7 +72,6 @@
 		40EBF1702A50F082004729C1 /* TextDebounceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBF16F2A50F082004729C1 /* TextDebounceManager.swift */; };
 		40EBF1722A50F208004729C1 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBF1712A50F208004729C1 /* SearchService.swift */; };
 		40EBF1742A50F2E4004729C1 /* SearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBF1732A50F2E4004729C1 /* SearchRepository.swift */; };
-		40EBF1762A50F858004729C1 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBF1752A50F858004729C1 /* UIApplication+Extensions.swift */; };
 		40EBF1782A50F99C004729C1 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBF1772A50F99C004729C1 /* SearchBarView.swift */; };
 		40EBF17A2A50FD26004729C1 /* FilterState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBF1792A50FD26004729C1 /* FilterState.swift */; };
 		40EBF17C2A5100FD004729C1 /* MediaTypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EBF17B2A5100FD004729C1 /* MediaTypePickerView.swift */; };
@@ -113,6 +112,7 @@
 		40545EFB2A4EB75F00B74E15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		40545EFC2A4EB85600B74E15 /* Env.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Env.swift; sourceTree = "<group>"; };
 		40545F012A4EC0D200B74E15 /* .env.dev */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .env.dev; sourceTree = "<group>"; };
+		405DC1F92A52E16800B9F271 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		407159D22A4E06E900695F27 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		4072F0472A5135940069D896 /* NetworkStatusManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusManager.swift; sourceTree = "<group>"; };
 		4072F04A2A514E5A0069D896 /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
@@ -122,7 +122,6 @@
 		4072F05A2A51700E0069D896 /* ErrorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 		4072F05F2A5185B90069D896 /* CachePolicyCustomPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachePolicyCustomPlugin.swift; sourceTree = "<group>"; };
 		408FDEB52A519E4F0055B217 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
-		408FDEB72A519E930055B217 /* MediaToDBMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaToDBMedia.swift; sourceTree = "<group>"; };
 		40B1E5432A503A2A005CCA3B /* DarkModeToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeToggleView.swift; sourceTree = "<group>"; };
 		40B1E5462A504330005CCA3B /* SearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
 		40B1E5482A504987005CCA3B /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
@@ -149,7 +148,6 @@
 		40EBF16F2A50F082004729C1 /* TextDebounceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDebounceManager.swift; sourceTree = "<group>"; };
 		40EBF1712A50F208004729C1 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		40EBF1732A50F2E4004729C1 /* SearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepository.swift; sourceTree = "<group>"; };
-		40EBF1752A50F858004729C1 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		40EBF1772A50F99C004729C1 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		40EBF1792A50FD26004729C1 /* FilterState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterState.swift; sourceTree = "<group>"; };
 		40EBF17B2A5100FD004729C1 /* MediaTypePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTypePickerView.swift; sourceTree = "<group>"; };
@@ -296,11 +294,11 @@
 		403360AA2A4EFCC30027D509 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				405DC1F92A52E16800B9F271 /* String+Extensions.swift */,
 				403360C62A4F0A6D0027D509 /* Int+Extensions.swift */,
 				40B1E5482A504987005CCA3B /* UINavigationController+Extensions.swift */,
 				403360C42A4F04EB0027D509 /* View+Extensions.swift */,
 				403360AB2A4EFCFC0027D509 /* Text+Extensions.swift */,
-				40EBF1752A50F858004729C1 /* UIApplication+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -404,7 +402,6 @@
 			children = (
 				4072F04E2A5164B70069D896 /* Base */,
 				4072F0542A5166BF0069D896 /* DBMedia+CoreDataClass.swift */,
-				408FDEB72A519E930055B217 /* MediaToDBMedia.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -767,7 +764,6 @@
 				4033609E2A4ECEA50027D509 /* MediaItem.swift in Sources */,
 				4072F05B2A51700E0069D896 /* ErrorManager.swift in Sources */,
 				4072F0482A5135940069D896 /* NetworkStatusManager.swift in Sources */,
-				408FDEB82A519E930055B217 /* MediaToDBMedia.swift in Sources */,
 				40CB0A162A4E149F00C54126 /* BaseTargetType.swift in Sources */,
 				40B1E5492A504987005CCA3B /* UINavigationController+Extensions.swift in Sources */,
 				403360A22A4EE78F0027D509 /* Assets.swift in Sources */,
@@ -778,7 +774,6 @@
 				40BA28722A4DB99E0084103F /* MovieApplicationApp.swift in Sources */,
 				403360F02A4F9CD40027D509 /* NavigationBar.swift in Sources */,
 				403360C72A4F0A6D0027D509 /* Int+Extensions.swift in Sources */,
-				40EBF1762A50F858004729C1 /* UIApplication+Extensions.swift in Sources */,
 				403360D92A4F36200027D509 /* MediaType.swift in Sources */,
 				40CB0A132A4E12F200C54126 /* MediaService.swift in Sources */,
 				4072F0562A5166BF0069D896 /* DBMedia+CoreDataClass.swift in Sources */,
@@ -798,6 +793,7 @@
 				40CB0A1D2A4E25D000C54126 /* BaseResponse.swift in Sources */,
 				40EBF1702A50F082004729C1 /* TextDebounceManager.swift in Sources */,
 				40CB0A232A4E275100C54126 /* BaseRepository.swift in Sources */,
+				405DC1FA2A52E16800B9F271 /* String+Extensions.swift in Sources */,
 				40CB0A1B2A4E1AE100C54126 /* MediaListViewModel.swift in Sources */,
 				403360EC2A4F945D0027D509 /* DynamicListStyleModifier.swift in Sources */,
 				400A13D92A50B25500B28D47 /* ToolbarMenuView.swift in Sources */,

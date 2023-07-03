@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 class BaseRepository {
-    func handleRawResult<T: Codable>(_ rawResult: Result<Response, MoyaError>) -> Result<[T], Error> {
+    func handleNetworkResult<T: Codable>(_ rawResult: Result<Response, MoyaError>) -> Result<[T], Error> {
         do {
             switch rawResult {
             case .success(let response):

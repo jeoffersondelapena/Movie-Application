@@ -8,36 +8,35 @@
 import CoreData
 
 extension DataController {
-    func searchDBMedias(
-        context: NSManagedObjectContext,
-        filterState: FilterState
-    ) -> [DBMedia] {
+    func searchDBMedias(filterState: FilterState) -> Result<[DBMedia], Error> {
         var dbMedias: [DBMedia] = []
 
+        let request = DBMedia.fetchRequest() as NSFetchRequest<DBMedia>
+
+        var mediaTypeKey: Int
+
+        switch filterState.mediaType {
+        case .movies:
+            mediaTypeKey = MediaType.movie.key
+        case .series:
+            mediaTypeKey = MediaType.series().key
+        }
+
+        request.predicate = NSPredicate(
+            format: "type == %@",
+            NSNumber(value: mediaTypeKey)
+        )
+
         do {
-            let request = DBMedia.fetchRequest() as NSFetchRequest<DBMedia>
-
-            var mediaTypeKey: Int
-            switch filterState.mediaType {
-            case .movies:
-                mediaTypeKey = MediaType.movie.key
-            case .series:
-                mediaTypeKey = MediaType.series().key
-            }
-            request.predicate = NSPredicate(
-                format: "type == %@",
-                NSNumber(value: mediaTypeKey)
-            )
-
             dbMedias = try context.fetch(request)
         } catch {
-            ErrorManager.throwFatalError(error)
+            return .failure(error)
         }
 
-        return dbMedias.filter { dbMedia in
-            guard let title = dbMedia.title else { return false }
-            return title.lowercased()
-                .contains(filterState.searchText.lowercased())
-        }
+        return .success(
+            dbMedias.filter { dbMedia in
+                dbMedia.isMatch(searchText: filterState.searchText)
+            }
+        )
     }
 }

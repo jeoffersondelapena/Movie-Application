@@ -16,12 +16,12 @@ enum NetworkStatus: String {
 class NetworkStatusManager: ObservableObject {
     static let shared = NetworkStatusManager()
 
-    @Published var status: NetworkStatus = .connected
+    @Published var status: NetworkStatus = .disconnected
 
     private let monitor = NWPathMonitor()
     private let queue = DispatchQueue(label: "Monitor")
 
-    init() {
+    private init() {
         monitor.pathUpdateHandler = { [weak self] path in
             guard let self = self else { return }
             DispatchQueue.main.async {
@@ -34,5 +34,9 @@ class NetworkStatusManager: ObservableObject {
             }
         }
         monitor.start(queue: queue)
+    }
+
+    func isDisconnected() -> Bool {
+        status == .disconnected
     }
 }

@@ -19,10 +19,7 @@ class MediaListViewModel: ObservableObject {
         self.repository = repository
     }
 
-    func getMedias(
-        mediaType: MediaType,
-        callback: @escaping ([Media]) -> Void
-    ) {
+    func getMedias(mediaType: MediaType) {
         mediasDataState.isLoading = true
         repository.getMedias(
             mediaType: mediaType,
@@ -33,11 +30,7 @@ class MediaListViewModel: ObservableObject {
             case .success(let response):
                 mediasDataState.error = nil
                 mediasDataState.data = response
-                callback(response)
             case .failure(let error):
-                if NetworkStatusManager.shared.status == .disconnected {
-                    return
-                }
                 mediasDataState.data.removeAll()
                 mediasDataState.error = error
             }

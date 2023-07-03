@@ -52,10 +52,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environment(
-                \.managedObjectContext,
-                 DataController.shared.container.viewContext
-            )
             .environmentObject(NetworkStatusManager.shared)
     }
 }

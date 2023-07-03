@@ -25,12 +25,12 @@ private struct NavigationSubBar: View {
                     color: Asset.ColorAssets.highEmphasisForeground.swiftUIColor
                 )
                 .alignText(
-                    networkStatusManager.status == .disconnected
+                    networkStatusManager.isDisconnected()
                         ? .leading
                         : .center
                 )
 
-            if networkStatusManager.status == .disconnected {
+            if networkStatusManager.isDisconnected() {
                 Spacer()
 
                 Text(L10n.Label.offlineMode)

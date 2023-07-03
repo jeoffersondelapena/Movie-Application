@@ -10,9 +10,14 @@ import Moya
 
 class MediaRepository: BaseRepository {
     private let provider: MoyaProvider<MediaService>
+    private let controller: DataController
 
-    init(provider: MoyaProvider<MediaService>) {
+    init(
+        provider: MoyaProvider<MediaService>,
+        controller: DataController
+    ) {
         self.provider = provider
+        self.controller = controller
     }
 
     func getMedias(
@@ -20,26 +25,20 @@ class MediaRepository: BaseRepository {
         year: Int,
         callback: @escaping (Result<[Media], Error>) -> Void
     ) {
-        switch mediaType {
-        case .movie:
-            getMovies(year: year, callback: callback)
-        case .series(let withNewEpisodesThisMonth):
-            if withNewEpisodesThisMonth {
-                getSeriesWithNewEpisodesThisMonth(callback: callback)
-            } else {
-                getSeries(year: year, callback: callback)
+        switch NetworkStatusManager.shared.status {
+        case .connected:
+            switch mediaType {
+            case .movie:
+                getMoviesFromNetwork(year: year, callback: callback)
+            case .series(let withNewEpisodesThisMonth):
+                if withNewEpisodesThisMonth {
+                    getSeriesWithNewEpisodesThisMonthFromNetwork(callback: callback)
+                } else {
+                    getSeriesFromNetwork(year: year, callback: callback)
+                }
             }
-        }
-    }
-
-    private func getMovies(
-        year: Int,
-        callback: @escaping (Result<[Media], Error>) -> Void
-    ) {
-        provider.request(.getMovies(year: year)) { [weak self] rawResult in
-            guard let self = self else { return }
-            let result: Result<[GetMovieResponse], Error> = handleRawResult(rawResult)
-            switch result {
+        case .disconnected:
+            switch controller.getDBMedias(mediaType: mediaType) {
             case .success(let response):
                 callback(.success(response.toDomain()))
             case .failure(let error):
@@ -48,34 +47,60 @@ class MediaRepository: BaseRepository {
         }
     }
 
-    private func getSeries(
+    private func getMoviesFromNetwork(
         year: Int,
         callback: @escaping (Result<[Media], Error>) -> Void
     ) {
-        provider.request(.getSeries(year: year)) { [weak self] rawResult in
+        provider.request(.getMovies(year: year)) { [weak self] rawResult in
             guard let self = self else { return }
-            let result: Result<[GetSeriesResponse], Error> = handleRawResult(rawResult)
+            let result: Result<[GetMovieResponse], Error> = handleNetworkResult(rawResult)
             switch result {
             case .success(let response):
-                callback(.success(response.toDomain(withNewEpisodesThisMonth: false)))
+                let medias = response.toDomain()
+                callback(.success(medias))
+                cacheMedias(medias: medias)
             case .failure(let error):
                 callback(.failure(error))
             }
         }
     }
 
-    private func getSeriesWithNewEpisodesThisMonth(
+    private func getSeriesFromNetwork(
+        year: Int,
         callback: @escaping (Result<[Media], Error>) -> Void
     ) {
-        provider.request(.getSeriesWithNewEpisodes) { [weak self] rawResult in
+        provider.request(.getSeries(year: year)) { [weak self] rawResult in
             guard let self = self else { return }
-            let result: Result<[GetSeriesResponse], Error> = handleRawResult(rawResult)
+            let result: Result<[GetSeriesResponse], Error> = handleNetworkResult(rawResult)
             switch result {
             case .success(let response):
-                callback(.success(response.toDomain(withNewEpisodesThisMonth: true)))
+                let medias = response.toDomain(withNewEpisodesThisMonth: false)
+                callback(.success(medias))
+                cacheMedias(medias: medias)
             case .failure(let error):
                 callback(.failure(error))
             }
         }
+    }
+
+    private func getSeriesWithNewEpisodesThisMonthFromNetwork(
+        callback: @escaping (Result<[Media], Error>) -> Void
+    ) {
+        provider.request(.getSeriesWithNewEpisodes) { [weak self] rawResult in
+            guard let self = self else { return }
+            let result: Result<[GetSeriesResponse], Error> = handleNetworkResult(rawResult)
+            switch result {
+            case .success(let response):
+                let medias = response.toDomain(withNewEpisodesThisMonth: true)
+                callback(.success(medias))
+                cacheMedias(medias: medias)
+            case .failure(let error):
+                callback(.failure(error))
+            }
+        }
+    }
+
+    private func cacheMedias(medias: [Media]) {
+        controller.setDBMedias(medias: medias)
     }
 }
