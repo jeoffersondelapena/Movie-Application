@@ -35,9 +35,6 @@ class SearchViewModel: ObservableObject {
                 mediasDataState.error = nil
                 mediasDataState.data = response
             case .failure(let error):
-                if NetworkStatusManager.shared.status == .disconnected {
-                    return
-                }
                 mediasDataState.data.removeAll()
                 mediasDataState.error = error
             }

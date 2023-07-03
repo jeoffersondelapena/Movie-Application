@@ -9,13 +9,10 @@ import SwiftUI
 import Moya
 
 struct SearchScreen: View {
-    @EnvironmentObject private var networkStatusManager: NetworkStatusManager
-
-    @Environment(\.managedObjectContext) var managedObjectContext
-
     @StateObject private var viewModel = SearchViewModel(
         repository: SearchRepository(
-            provider: MoyaProvider<SearchService>()
+            provider: MoyaProvider<SearchService>(plugins: [CachePolicyCustomPlugin()]),
+            controller: DataController.shared
         )
     )
 
@@ -35,45 +32,16 @@ struct SearchScreen: View {
         .toolbar {
             ToolbarMenuView(withSearchOption: false)
         }
-        .onChange(of: networkStatusManager.status) { _ in
-            onNetworkStatusChange()
-        }
     }
 
     private func searchMedias(searchText: String) {
         viewModel.filterState.searchText = searchText
-        searchMedias()
+        viewModel.searchMedias()
     }
 
     private func searchMedias(mediaType: FilterState.MediaType) {
         viewModel.filterState.mediaType = mediaType
-        searchMedias()
-    }
-
-    private func searchMedias() {
-        switch networkStatusManager.status {
-        case .connected:
-            viewModel.searchMedias()
-        case .disconnected:
-            searchMediasFromCache()
-        }
-    }
-
-    private func searchMediasFromCache() {
-        viewModel.mediasDataState.error = nil
-        viewModel.mediasDataState.data = DataController.shared.searchDBMedias(
-            context: managedObjectContext,
-            filterState: viewModel.filterState
-        )
-        .toDomain()
-    }
-
-    private func onNetworkStatusChange() {
-        viewModel.mediasDataState = DataState(
-            data: [],
-            isLoading: false
-        )
-        searchMedias()
+        viewModel.searchMedias()
     }
 }
 

@@ -8,52 +8,42 @@
 import CoreData
 
 extension DataController {
-    func getDBMedias(
-        context: NSManagedObjectContext,
-        mediaType: MediaType
-    ) -> [DBMedia] {
-        var dbMedias: [DBMedia] = []
+    func getDBMedias(mediaType: MediaType) -> Result<[DBMedia], Error> {
+        let request = DBMedia.fetchRequest() as NSFetchRequest<DBMedia>
 
-        do {
-            let request = DBMedia.fetchRequest() as NSFetchRequest<DBMedia>
-
-            var subPredicates = [
-                NSPredicate(
-                    format: "type == %@",
-                    NSNumber(value: mediaType.key)
-                )
-            ]
-
-            switch mediaType {
-            case .series(let withNewEpisodesThisMonth):
-                subPredicates.append(
-                    NSPredicate(
-                        format: "withNewEpisodesThisMonth == %@",
-                        NSNumber(value: withNewEpisodesThisMonth)
-                    )
-                )
-            default:
-                break
-            }
-
-            request.predicate = NSCompoundPredicate(
-                type: .and,
-                subpredicates: subPredicates
+        var subPredicates = [
+            NSPredicate(
+                format: "type == %@",
+                NSNumber(value: mediaType.key)
             )
+        ]
 
-            dbMedias = try context.fetch(request)
-        } catch {
-            ErrorManager.throwFatalError(error)
+        switch mediaType {
+        case .series(let withNewEpisodesThisMonth):
+            subPredicates.append(
+                NSPredicate(
+                    format: "withNewEpisodesThisMonth == %@",
+                    NSNumber(value: withNewEpisodesThisMonth)
+                )
+            )
+        default:
+            break
         }
 
-        return dbMedias
+        request.predicate = NSCompoundPredicate(
+            type: .and,
+            subpredicates: subPredicates
+        )
+
+        do {
+            return .success(try context.fetch(request))
+        } catch {
+            return .failure(error)
+        }
     }
 
-    func setDBMedias(
-        context: NSManagedObjectContext,
-        medias: [Media]
-    ) {
+    func setDBMedias(medias: [Media]) {
         _ = medias.toLocalDTO(managedObjectContext: context)
-        DataController.shared.save(context: context)
+        save()
     }
 }

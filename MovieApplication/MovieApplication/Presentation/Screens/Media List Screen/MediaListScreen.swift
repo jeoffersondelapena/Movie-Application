@@ -11,11 +11,10 @@ import Moya
 struct MediaListScreen: View {
     @EnvironmentObject private var networkStatusManager: NetworkStatusManager
 
-    @Environment(\.managedObjectContext) var managedObjectContext
-
     @StateObject private var viewModel = MediaListViewModel(
         repository: MediaRepository(
-            provider: MoyaProvider<MediaService>(plugins: [CachePolicyCustomPlugin()])
+            provider: MoyaProvider<MediaService>(plugins: [CachePolicyCustomPlugin()]),
+            controller: DataController.shared
         )
     )
 
@@ -38,44 +37,14 @@ struct MediaListScreen: View {
         MediaListView(mediasDataState: viewModel.mediasDataState)
             .showNavigationSubBar(title: subNavigationBarTitle)
             .showNavigationBar()
-            .onAppear(perform: fetchContents)
+            .onAppear(perform: getContent)
             .onChange(of: networkStatusManager.status) { _ in
                 onNetworkStatusChange()
             }
     }
 
-    private func fetchContents() {
-        switch networkStatusManager.status {
-        case .connected:
-            fetchContentsFromNetwork()
-        case .disconnected:
-            fetchContentsFromCache()
-        }
-    }
-
-    private func fetchContentsFromNetwork() {
-        viewModel.getMedias(
-            mediaType: mediaType,
-            callback: cacheContents
-        )
-    }
-
-    private func fetchContentsFromCache() {
-        viewModel.mediasDataState.error = nil
-        viewModel.mediasDataState.data = DataController.shared.getDBMedias(
-            context: managedObjectContext,
-            mediaType: mediaType
-        )
-        .toDomain()
-    }
-
-    private func cacheContents(medias: [Media]) {
-        if !medias.isEmpty {
-            DataController.shared.setDBMedias(
-                context: managedObjectContext,
-                medias: medias
-            )
-        }
+    private func getContent() {
+        viewModel.getMedias(mediaType: mediaType)
     }
 
     private func onNetworkStatusChange() {
@@ -83,7 +52,7 @@ struct MediaListScreen: View {
             data: [],
             isLoading: false
         )
-        fetchContents()
+        getContent()
     }
 }
 

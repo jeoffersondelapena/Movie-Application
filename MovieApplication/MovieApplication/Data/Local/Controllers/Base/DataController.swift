@@ -10,19 +10,22 @@ import CoreData
 class DataController: ObservableObject {
     static let shared = DataController()
 
-    let container = NSPersistentContainer(name: "Main")
+    private let container = NSPersistentContainer(name: "Main")
+    var context: NSManagedObjectContext {
+        container.viewContext
+    }
 
-    init() {
+    private init() {
         container.loadPersistentStores { [weak self] _, error in
             guard let self = self else { return }
-            self.container.viewContext.mergePolicy = NSMergePolicy(
+            self.context.mergePolicy = NSMergePolicy(
                 merge: NSMergePolicyType.mergeByPropertyObjectTrumpMergePolicyType
             )
             ErrorManager.throwFatalError(error)
         }
     }
 
-    func save(context: NSManagedObjectContext) {
+    func save() {
         if context.hasChanges {
             do {
                 try context.save()
